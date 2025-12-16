@@ -38,8 +38,11 @@ public Long getId(){
 public Long getCustomerId(){
     return customerId;
 }
-public String channel(){
+public String getChannel(){
     return channel;
+}
+public LocalDate visitDate(){
+    return visitDate;
 }
 public void setCustomerId(){
 this.customerId=customerId;
