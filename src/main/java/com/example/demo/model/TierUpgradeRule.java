@@ -47,6 +47,11 @@ public class TierUpgradeRule{
         return id;
     }
     public String getFromTier(){
-        return fromTier
+        return fromTier;
     }
+    public String getToTier(){
+       return toTier;
+    }
+    
+    public void setToTier()
 }
