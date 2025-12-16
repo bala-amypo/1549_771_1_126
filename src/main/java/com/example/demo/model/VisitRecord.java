@@ -24,9 +24,25 @@ this.customerId=customerId;
 this.visitDate=visitDate;
 this.channel=channel;
 }
+//validation
 @PrePersist
 @PreUpdate
 private void valideChannel(){
-    
+
 }
+
+//getters and setters
+public Long getId(){
+    return id;
+}
+public Long getCustomerId(){
+    return customerId;
+}
+public String channel(){
+    return channel;
+}
+public void setCustomerId(){
+this.customerId=customerId;
+}
+public void set
 }
