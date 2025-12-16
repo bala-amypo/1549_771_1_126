@@ -36,7 +36,12 @@ private void PrePersist(){
         active=true;
     }
 }
+public CustomerProfile(){
 
+}
+public CustomerProfile(String customerId,String fullName,String email,String phone,String currentTier,String active){
+    
+}
 public Long getId(){
     return id;
 }
