@@ -26,6 +26,27 @@ public class TierUpgradeRule{
         this.formTier=formTier;
         this.toTier=toTier;
         this.minSpend=minSpend;
-        this.minVisits=min
+        this.minVisits=minVisits;
+        this.active=active;
+    }
+
+    //validation
+    @PrePersist
+    @PreUpadate
+    private void validateRule(){
+        if(minSpend==null || minSpend<0){
+            throw new IllegalArgumentException("minSpend must be >=0");
+        }
+
+        if(minVisits==null || minVisits<0){
+            throw new IllegalArgumentException("minVisits must be >=0");
+        }
+    }
+    //getters and setters
+    public Long getId(){
+        return id;
+    }
+    public String getFromTier(){
+        return fromTier
     }
 }
