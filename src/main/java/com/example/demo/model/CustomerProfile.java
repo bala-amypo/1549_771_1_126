@@ -40,7 +40,12 @@ public CustomerProfile(){
 
 }
 public CustomerProfile(String customerId,String fullName,String email,String phone,String currentTier,String active){
-    
+ this.customerId=customerId;
+this.fullName=fullName;
+ this.email=email;
+this.phone=phone;
+this.currentTier=currentTier;
+this.active=active;
 }
 public Long getId(){
     return id;
