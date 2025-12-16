@@ -19,6 +19,6 @@ public class TierHistoryRecord{
     private LocalDateTime changedAt;
 
     //constructors
-    
+    public Tier
 
 }
