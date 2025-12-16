@@ -54,7 +54,16 @@ public String getemail(){
 public String getphone(){
     return phone;
 }
-public String
+public String getcurrentTier(){
+    return currentTier;
+}
+
+public String getactive(){
+    return active;
+}
+public String getcreatedAt(){
+    return createdAt;
+}
 public void setId(Long id){
     this.id=id;
 }
