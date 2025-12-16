@@ -29,8 +29,27 @@ public class PurchaseRecord{
     this.storeLocation=storeLocation;
   }
 
-  //validation r
+  //validation rule
+@PrePersist
+@PreUpdate
+private void validateAmount(){
+    if(amount==null ||amount<=0){
+        throw new IllegalArgumentException("Amount must be >0");
+    }
+}
+//getters and setters
 
+public Long getId(){
+    return id;
+}
+public Long getCustomerId(){
+    return customerId;
+}
+public Double getAmount(){
+    return amount;
+}
+
+public void setAmount()
     
 
 }
