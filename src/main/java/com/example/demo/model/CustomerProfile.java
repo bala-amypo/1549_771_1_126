@@ -23,5 +23,18 @@ public class CustomerProfile {
      @Column (nullable=false)
      private LocalDateTime createdAt;
 
+
+@PrePersist
+private void PrePersist(){
+    if(currentTier==null){
+        currentTier="BRONZE";
+    }
+    if(createdAt==null){
+        createdAt=LocalDateTime.now();
+    }
+    if(active==null){
+        active=true;
+    }
+}
      
 }
