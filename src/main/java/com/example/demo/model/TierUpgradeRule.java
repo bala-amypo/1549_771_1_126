@@ -52,6 +52,16 @@ public class TierUpgradeRule{
     public String getToTier(){
        return toTier;
     }
-    
-    public void setToTier()
+    public Double getMinSpend(){
+        return minSpend;
+    }
+    public Integer getMinVisits(){
+        return minVisits;
+    }
+    public Boolean getActive(){
+         return  active;
+    }
+    public void setToTier(){
+        return  active;
+    }
 }
