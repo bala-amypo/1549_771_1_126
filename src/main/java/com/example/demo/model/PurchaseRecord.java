@@ -8,15 +8,13 @@ public class PurchaseRecord{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+
+ @Column(nullable=false)
+ private Long customerId;  
+  @Column(nullable=false)
+  private Double amount;
+
     
 
-    private CustomerProfile customer;
-    
 }
 
-public class PurchaseRecord{
-    private long id;
-    private long customerId;
-    private double amount;
-    private LocalDate purchaseDate;
-}
