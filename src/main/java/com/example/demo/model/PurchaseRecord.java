@@ -48,7 +48,7 @@ public Long getCustomerId(){
 public Double getAmount(){
     return amount;
 }
-
+public LocalDate getPurchaseDate()
 public void setAmount()
     
 

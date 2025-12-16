@@ -56,47 +56,47 @@ public String getCustomerId(){
     
 }
 
-public String getfullName(){
+public String getFullName(){
     return fullName;
 }
-public String getemail(){
+public String getEmail(){
     return email;
 }
-public String getphone(){
+public String getPhone(){
     return phone;
 }
-public String getcurrentTier(){
+public String getCurrentTier(){
     return currentTier;
 }
 
-public String getactive(){
+public String getActive(){
     return active;
 }
-public String getcreatedAt(){
+public String getCreatedAt(){
     return createdAt;
 }
 public void setId(Long id){
     this.id=id;
 }
-public void setcustomerId(Long customerId){
+public void setCustomerId(Long customerId){
     this.customerId=customerId;
 }
-public void setfullName(String fullName){
+public void setFullName(String fullName){
     this.fullName=fullName;
 }
-public void setemail(String email){
+public void setEmail(String email){
     this.email=email;
 }
-public void setphone(String phone){
+public void setPhone(String phone){
     this.phone=phone;
 }
-public void setcurrentTier(String currentTier){
+public void setCurrentTier(String currentTier){
     this.currentTier=currentTier;
 }
-public void setactive(String active){
+public void setActive(String active){
     this.active=active;
 }
-public void setcreatedAt(String createdAt){
+public void setCreatedAt(String createdAt){
     this.createdAt=createdAt;
 }
 
