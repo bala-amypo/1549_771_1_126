@@ -61,7 +61,19 @@ public class TierUpgradeRule{
     public Boolean getActive(){
          return  active;
     }
+
+public void setId(){
+    this.id=id;
+}
+    public void setFromTier(){
+        this.formTier=formTier;
+    }
     public void setToTier(){
-        return  active;
+
+    }
+    public void setMinSpend(){
+        this.minSpend=minSpend;
+        this.toTier=toTier;
+        
     }
 }
