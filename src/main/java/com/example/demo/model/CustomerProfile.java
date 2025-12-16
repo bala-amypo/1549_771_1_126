@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
-import org.springframework.stereotype.Indexed;
-
+import jakarta persistence.*;
 import jakarta.annotation.Generated;
 import java.time.LocalDate;
 public class CustomerProfile {
