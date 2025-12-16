@@ -11,7 +11,7 @@ public class CustomerProfile {
      @Column(nullable=false,unique=true)
      private String customerId;
      @Column(nullable=false)
-     private String fullname;
+     private String fullName;
      @Column(nullable=false,unique=true)
      private String email;
      @Column(unique=true)
@@ -45,7 +45,16 @@ public String getCustomerId(){
     
 }
 
-public String fullname
+public String getfullName(){
+    return fullName;
+}
+public String getemail(){
+    return email;
+}
+public String getphone(){
+    return phone;
+}
+public String
 public void setId(Long id){
     this.id=id;
 }
