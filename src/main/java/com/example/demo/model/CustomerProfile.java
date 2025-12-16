@@ -46,6 +46,7 @@ this.fullName=fullName;
 this.phone=phone;
 this.currentTier=currentTier;
 this.active=active;
+this.createdAt=createdAt;
 }
 public Long getId(){
     return id;
