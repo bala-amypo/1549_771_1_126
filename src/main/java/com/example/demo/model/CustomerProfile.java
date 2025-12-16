@@ -70,7 +70,24 @@ public void setId(Long id){
 public void setcustomerId(Long customerId){
     this.customerId=customerId;
 }
-
+public void setfullName(String fullName){
+    this.fullName=fullName;
+}
+public void setemail(String email){
+    this.email=email;
+}
+public void setphone(String phone){
+    this.phone=phone;
+}
+public void setcurrentTier(String currentTier){
+    this.currentTier=currentTier;
+}
+public void setactive(String active){
+    this.active=active;
+}
+public void setcreatedAt(String createdAt){
+    this.createdAt=createdAt;
+}
 
 
 }
