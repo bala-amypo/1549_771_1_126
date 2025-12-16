@@ -41,7 +41,7 @@ public Long getCustomerId(){
 public String getChannel(){
     return channel;
 }
-public LocalDate getvisitDate(){
+public LocalDate getVisitDate(){
     return visitDate;
 }
 public void setCustomerId(){
@@ -54,6 +54,9 @@ public void setChannel(){
 this.channel=channel;
 } 
 public void setVisitDate(){
-    
+this.visitDate=visitDate;
+}
+public void setChannel(){
+    this.channel=channel;
 }
 }
