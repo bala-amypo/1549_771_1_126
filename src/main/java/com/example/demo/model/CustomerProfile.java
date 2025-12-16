@@ -36,5 +36,21 @@ private void PrePersist(){
         active=true;
     }
 }
-     
+
+public Long getId(){
+    return id;
 }
+public String getCustomerId(){
+    return customerId;
+    
+}
+
+public String fullname
+public void setId(Long id){
+    this.id=id;
+}
+
+
+}
+     
+
