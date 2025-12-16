@@ -51,8 +51,8 @@ public Double getAmount(){
 public LocalDate getPurchaseDate(){
     return purchaseDate;
 }
-public String getstoreLocation(){
-    return 
+public String getStoreLocation(){
+    return storeLocation;
 }
 public void setCustomerId(Long customerId){
     this.customerId;
@@ -63,8 +63,8 @@ public void setAmount(Double amount){
 public void setPurchaseDate(LocalDate purchaseDate){
     this.purchaseDate=purchaseDate;
 }
-public void setStoreLocat
-    
-
+public void setStoreLocation(String storeLocation){
+    this.storeLocation=storeLocation;
+}
 }
 
