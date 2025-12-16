@@ -3,7 +3,7 @@ package com.example.demo.model;
 import org.springframework.stereotype.Indexed;
 
 import jakarta.annotation.Generated;
-
+import java.time.LocalDate;
 public class CustomerProfile {
     @Id
      @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class CustomerProfile {
      private String phone;
      private  String currentTier;
      private Boolean active;
-     private LocalDateTime createdAt 
+     private LocalDateTime createdAt;
 
      
 }
