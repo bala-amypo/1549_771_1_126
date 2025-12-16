@@ -14,13 +14,19 @@ private Long customerId;
 private LocalDate visitDate;
 
 @Column(nullable=false)
-private LocalDate visitDate;
-
-@Column(nullable=false)
 private String channel;
 
 public VisitRecord(){
 
 }
-
+public VisitRecord(Long customerId,LocalDate visitDate,String channel){
+this.customerId=customerId;
+this.visitDate=visitDate;
+this.channel=channel;
+}
+@PrePersist
+@PreUpdate
+private void valideChannel(){
+    
+}
 }
