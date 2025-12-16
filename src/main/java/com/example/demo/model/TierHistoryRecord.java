@@ -19,6 +19,13 @@ public class TierHistoryRecord{
     private LocalDateTime changedAt;
 
     //constructors
-    public Tier
+    public TierHistoryRecord(){
+
+    }
+    public TierHistoryRecord(Long customerId,String oldTier,String newTier,String reason){
+        this.customerId=customerId;
+        thsi.newTier=newTier;
+        this.reason=reason;
+    }
 
 }
