@@ -69,11 +69,15 @@ public void setId(){
         this.formTier=formTier;
     }
     public void setToTier(){
-
+        this.toTier=toTier;
     }
     public void setMinSpend(){
         this.minSpend=minSpend;
-        this.toTier=toTier;
-        
+    }
+    public void setMinVists(){
+      this.minVisits=minVisits;  
+    }
+    public void setActive(){
+         this.active=active;
     }
 }
