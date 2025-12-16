@@ -11,5 +11,16 @@ public class VisitRecord{
 private Long customerId;
 
 @Column(nullable=false)
-private LocalDate
+private LocalDate visitDate;
+
+@Column(nullable=false)
+private LocalDate visitDate;
+
+@Column(nullable=false)
+private String channel;
+
+public VisitRecord(){
+
+}
+
 }
