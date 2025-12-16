@@ -12,7 +12,9 @@ public class CustomerProfile {
      private String fullname;
      private String email;
      private String phone;
-      
+     private  String currentTier;
+     private Boolean active;
+     private LocalDateTime createdAt 
 
      
 }
