@@ -1,13 +1,16 @@
 package com.example.demo.model;
 
 import jakarta persistence.*;
-import jakarta.annotation.Generated;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
 public class CustomerProfile {
     @Id
      @GeneratedValue(strategy=GenerationType.IDENTITY)
-     private long Id;
+     private Long Id;//PK
+     @Column(nullable=false,unique=true)
      private String customerId;
+     
      private String fullname;
      private String email;
      private String phone;
