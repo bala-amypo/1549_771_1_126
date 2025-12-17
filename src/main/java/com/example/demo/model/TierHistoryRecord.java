@@ -1,6 +1,9 @@
 package com.example.demo.model;
 import jakarta.persistence.*;
+
+
 import java.time.LocalDateTime;
+
 
 @Entity
 public class TierHistoryRecord{
@@ -22,7 +25,7 @@ public class TierHistoryRecord{
     public TierHistoryRecord(){
 
     }
-    public TierHistoryRecord(Long customerId,String oldTier,String newTier,String reason){
+    public TierHistoryRecord(Long customerId,String oldTier,String newTier,String reason,LocalDateTime changedAt){
         this.customerId=customerId;
         this.newTier=newTier;
         this.reason=reason;
@@ -62,7 +65,7 @@ public class TierHistoryRecord{
         return changedAt;
     }
     public void setChangedAt(LocalDateTime changedAt) {
-        this.changedAt = changedAt;
+        this.changedAt=changedAt;
     }
 
     
