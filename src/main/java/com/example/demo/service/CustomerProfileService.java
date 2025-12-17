@@ -1,11 +1,16 @@
 package com.example.demo.service;
 
-public interface CustomerProfileService {
-    createCustomer(CustomerProfile customer );
-    getCustomerId(Long  id);
-    findbyCustomerId(String customerId);
-    getAllCustomers();
-    updateTier(Long Id,String newTier);
-    updateStatus(Long Id,Boolean active);
-    
+public interface CustomerService {
+
+    CustomerProfile createCustomer(CustomerProfile customer);
+
+    CustomerProfile getCustomerId(Long id);
+
+    CustomerProfile findbyCustomerId(String customerId);
+
+    List<CustomerProfile> getAllCustomers();
+
+    CustomerProfile updateTier(Long id, String newTier);
+
+    CustomerProfile updateStatus(Long id, Boolean active);
 }
