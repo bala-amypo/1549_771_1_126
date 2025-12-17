@@ -29,55 +29,56 @@ public class TierUpgradeRule{
         this.minVisits=minVisits;
         this.active=active;
     }
-
     //validation
-    @PrePersist
-    @PreUpadate
-    private void validateRule(){
-        if(minSpend==null || minSpend<0){
-            throw new IllegalArgumentException("minSpend must be >=0");
-        }
+    // @PrePersist
+    // @PreUpadate
+    // private void validateRule(){
+    //     if(minSpend==null || minSpend<0){
+    //         throw new IllegalArgumentException("minSpend must be >=0");
+    //     }
 
-        if(minVisits==null || minVisits<0){
-            throw new IllegalArgumentException("minVisits must be >=0");
-        }
-    }
+    //     if(minVisits==null || minVisits<0){
+    //         throw new IllegalArgumentException("minVisits must be >=0");
+    //     }
+    // }
     //getters and setters
-    public Long getId(){
+   
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public void setFormTier(String formTier) {
+        this.formTier = formTier;
+    }
+    public void setToTier(String toTier) {
+        this.toTier = toTier;
+    }
+    public void setMinSpend(Double minSpend) {
+        this.minSpend = minSpend;
+    }
+    public void setMinVisits(Integer minVisits) {
+        this.minVisits = minVisits;
+    }
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+
+    public Long getId() {
         return id;
     }
-    public String getFromTier(){
-        return fromTier;
+    public String getFormTier() {
+        return formTier;
     }
-    public String getToTier(){
-       return toTier;
+    public String getToTier() {
+        return toTier;
     }
-    public Double getMinSpend(){
+    public Double getMinSpend() {
         return minSpend;
     }
-    public Integer getMinVisits(){
+    public Integer getMinVisits() {
         return minVisits;
     }
-    public Boolean getActive(){
-         return  active;
-    }
-
-public void setId(){
-    this.id=id;
-}
-    public void setFromTier(){
-        this.formTier=formTier;
-    }
-    public void setToTier(){
-        this.toTier=toTier;
-    }
-    public void setMinSpend(){
-        this.minSpend=minSpend;
-    }
-    public void setMinVists(){
-      this.minVisits=minVisits;  
-    }
-    public void setActive(){
-         this.active=active;
+    public Boolean getActive() {
+        return active;
     }
 }
