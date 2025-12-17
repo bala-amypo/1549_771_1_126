@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
+
 
 @Entity
 public class PurchaseRecord{
@@ -29,14 +31,14 @@ public class PurchaseRecord{
     this.storeLocation=storeLocation;
   }
 
-  //validation rule
-@PrePersist
-@PreUpdate
-private void validateAmount(){
-    if(amount==null ||amount<=0){
-        throw new IllegalArgumentException("Amount must be >0");
-    }
-}
+//   //validation rule
+// @PrePersist
+// @PreUpdate
+// private void validateAmount(){
+//     if(amount==null ||amount<=0){
+//         throw new IllegalArgumentException("Amount must be >0");
+//     }
+// }
 //getters and setters
 
 public Long getId(){
@@ -55,7 +57,7 @@ public String getStoreLocation(){
     return storeLocation;
 }
 public void setCustomerId(Long customerId){
-    this.customerId;
+    this.customerId=customerId;
 }
 public void setAmount(Double amount){
     this.amount=amount;
