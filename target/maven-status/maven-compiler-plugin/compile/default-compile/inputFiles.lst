@@ -13,13 +13,17 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/PurchaseRecord.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/model/UpgradeTierRule.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/VisitRecord.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/CustomerProfileRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/PurchaseRecordRepository.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/repository/UpgradeTierRuleRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/VisitRecordRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/PurchaseRecordService.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/UpdateTierRuleService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/VisitRecordService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/CustomerProfileServiceImpl.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/PurchaseRecordServiceImpl.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/UpdateTierRuleServiceImpl.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/VisitRecordServiceImpl.java
