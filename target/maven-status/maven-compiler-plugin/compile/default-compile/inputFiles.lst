@@ -2,3 +2,6 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SwaggerConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/StudentController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/entity/Student.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/repository/StudentRepo.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/StudentService.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/StudentServiceimpl.java
