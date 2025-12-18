@@ -13,6 +13,7 @@ public class CustomerProfileServiceImpl implements CustomerProfileService {
 
     private final CustomerProfileRepository customerProfileRepository;
 
+    // Constructor Injection (MANDATORY as per rules)
     public CustomerProfileServiceImpl(CustomerProfileRepository customerProfileRepository) {
         this.customerProfileRepository = customerProfileRepository;
     }
@@ -20,11 +21,13 @@ public class CustomerProfileServiceImpl implements CustomerProfileService {
     @Override
     public CustomerProfile createCustomer(CustomerProfile customer) {
 
+        // Check duplicate customerId
         customerProfileRepository.findByCustomerId(customer.getCustomerId())
                 .ifPresent(existing -> {
                     throw new IllegalArgumentException("Customer ID already exists");
                 });
 
+        // Default tier
         if (customer.getCurrentTier() == null) {
             customer.setCurrentTier("BRONZE");
         }
