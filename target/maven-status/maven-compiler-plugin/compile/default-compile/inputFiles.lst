@@ -1,6 +1,14 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/DemoApplication.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/config/JwtAutenticationFilter.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/config/JwtTokenProvider.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/config/SecurityConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SwaggerConfig.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/AuthController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/CustomerProfileController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/PurchaseRecordController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeEngineController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeRuleController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/VisitRecordController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/CustomerProfileRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
