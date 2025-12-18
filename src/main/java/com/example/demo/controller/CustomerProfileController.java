@@ -1,8 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CustomerProfile;
-import com.example.demo.service.CustomerProfileService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo5.service.CustomerProfileService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,38 +12,84 @@ import java.util.List;
 @RequestMapping("/api/customers")
 public class CustomerProfileController {
 
-    @Autowired
-    private CustomerProfileService customerProfileService;   // Autowired service
+    private final CustomerProfileService customerProfileService;
 
+    public CustomerProfileController(CustomerProfileService customerProfileService) {
+        this.customerProfileService = customerProfileService;
+    }
+
+    /**
+     * POST /api/customers
+     * Create a new customer profile
+     * Access: JWT Protected
+     */
     @PostMapping
-    public CustomerProfile createCustomer(@RequestBody CustomerProfile customer) {
-        return customerProfileService.createCustomer(customer);
+    public ResponseEntity<CustomerProfile> createCustomer(
+            @RequestBody CustomerProfile customer) {
+
+        CustomerProfile createdCustomer =
+                customerProfileService.createCustomer(customer);
+
+        return new ResponseEntity<>(createdCustomer, HttpStatus.CREATED);
     }
 
-    // @GetMapping("/{id}")
-    // public CustomerProfile getCustomer(@PathVariable Long id) {
-    //     return customerProfileService.getCustomerById(id);
-    // }
+    /**
+     * GET /api/customers/{id}
+     * Get customer by database ID
+     * Access: JWT Protected
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomerProfile> getCustomerById(
+            @PathVariable Long id) {
 
+        CustomerProfile customer =
+                customerProfileService.getCustomerById(id);
+
+        return ResponseEntity.ok(customer);
+    }
+
+    /**
+     * GET /api/customers
+     * Get all customers
+     * Access: JWT Protected
+     */
     @GetMapping
-    public List<CustomerProfile> getAll() {
-        return customerProfileService.getAllCustomers();
+    public ResponseEntity<List<CustomerProfile>> getAllCustomers() {
+
+        List<CustomerProfile> customers =
+                customerProfileService.getAllCustomers();
+
+        return ResponseEntity.ok(customers);
     }
 
-    // @PutMapping("/{id}/tier")
-    // public CustomerProfile updateTier(@PathVariable Long id,
-    //                                   @RequestParam String newTier) {
-    //     return customerProfileService.updateTier(id, newTier);
-    // }
+    /**
+     * PUT /api/customers/{id}/tier?newTier=GOLD
+     * Update customer tier
+     * Access: JWT Protected
+     */
+    @PutMapping("/{id}/tier")
+    public ResponseEntity<CustomerProfile> updateCustomerTier(
+            @PathVariable Long id,
+            @RequestParam String newTier) {
 
-    // @PutMapping("/{id}/status")
-    // public CustomerProfile updateStatus(@PathVariable Long id,
-    //                                     @RequestParam boolean active) {
-    //     return customerProfileService.updateStatus(id, active);
-    // }
+        CustomerProfile updatedCustomer =
+                customerProfileService.updateTier(id, newTier);
 
-    // @GetMapping("/lookup/{customerId}")
-    // public CustomerProfile lookup(@PathVariable String customerId) {
-    //     return customerProfileService.findByCustomerId(customerId);
-    // }
+        return ResponseEntity.ok(updatedCustomer);
+    }
+
+    /**
+     * GET /api/customers/lookup/{customerId}
+     * Find customer by business customerId
+     * Access: JWT Protected
+     */
+    @GetMapping("/lookup/{customerId}")
+    public ResponseEntity<CustomerProfile> findByCustomerId(
+            @PathVariable String customerId) {
+
+        CustomerProfile customer =
+                customerProfileService.findByCustomerId(customerId);
+
+        return ResponseEntity.ok(customer);
+    }
 }
