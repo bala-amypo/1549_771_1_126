@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo5.service;
 
-import com.example.demo.model.CustomerProfile;
+import com.example.demo5.model.CustomerProfile;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ public interface CustomerProfileService {
 
     CustomerProfile createCustomer(CustomerProfile customer);
 
-    //CustomerProfile getCustomerById(Long id);
+    CustomerProfile getCustomerById(Long id);
 
-    // CustomerProfile findByCustomerId(String customerId);
+    CustomerProfile findByCustomerId(String customerId);
 
-     List<CustomerProfile> getAllCustomers();
+    List<CustomerProfile> getAllCustomers();
 
-    // CustomerProfile updateTier(Long id, String newTier);
+    CustomerProfile updateTier(Long id, String newTier);
 
-    // CustomerProfile updateStatus(Long id, boolean active);
+    CustomerProfile updateStatus(Long id, boolean active);
 }
