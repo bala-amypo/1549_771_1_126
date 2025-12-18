@@ -9,8 +9,8 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeEngineController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeRuleController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/VisitRecordController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/exception/CustomExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/exception/ResourceException.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/CustomerProfileRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
