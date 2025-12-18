@@ -21,7 +21,7 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/VisitRecordRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/PurchaseRecordService.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/service/TierUpdateRuleService.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/TierUpgradeRuleService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/VisitRecordService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/CustomerProfileServiceImpl.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/PurchaseRecordServiceImpl.java
