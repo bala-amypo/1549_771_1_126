@@ -1,7 +1,7 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/DemoApplication.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SwaggerConfig.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/StudentController.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/entity/Student.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/repository/StudentRepo.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/service/StudentService.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/StudentServiceimpl.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/controller/CustomerProfileController.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/repository/CustomerProfileRepository.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/CustomerProfileServiceImpl.java
