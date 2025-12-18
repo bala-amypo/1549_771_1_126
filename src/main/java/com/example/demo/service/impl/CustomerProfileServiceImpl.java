@@ -1,7 +1,7 @@
-package com.example.demo5.service;
+package com.example.demo.service;
 
-import com.example.demo5.model.CustomerProfile;
-import com.example.demo5.repository.CustomerProfileRepository;
+import com.example.demo.model.CustomerProfile;
+import com.example.demo.repository.CustomerProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
