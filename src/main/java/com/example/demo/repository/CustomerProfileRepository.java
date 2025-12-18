@@ -1,13 +1,15 @@
 package com.example.demo.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
 import com.example.demo.model.CustomerProfile;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
+import java.util.Optional;
+
 public interface CustomerProfileRepository extends JpaRepository<CustomerProfile, Long> {
 
-   
+    Optional<CustomerProfile> findByCustomerId(String customerId);
+
+    Optional<CustomerProfile> findByEmail(String email);
+
 }
 
