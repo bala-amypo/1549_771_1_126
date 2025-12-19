@@ -1,14 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ApiResponse;
 import com.example.demo.dto.LoginRequest;
 import com.example.demo.dto.RegisterRequest;
-import com.example.demo.dto.ApiResponse;
 import com.example.demo.model.CustomerProfile;
 import com.example.demo.service.CustomerProfileService;
+import com.example.demo.util.JwtUtil;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,47 +16,80 @@ import org.springframework.web.bind.annotation.*;
 public class AuthController {
 
     private final CustomerProfileService customerProfileService;
+    private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public AuthController(CustomerProfileService customerProfileService,
-                          PasswordEncoder passwordEncoder) {
+    // ==========================
+    // Constructor Injection
+    // ==========================
+    public AuthController(
+            CustomerProfileService customerProfileService,
+            JwtUtil jwtUtil,
+            PasswordEncoder passwordEncoder
+    ) {
         this.customerProfileService = customerProfileService;
+        this.jwtUtil = jwtUtil;
         this.passwordEncoder = passwordEncoder;
     }
 
-    // ---------------- REGISTER ----------------
+    // ======================================================
+    // POST /auth/register
+    // Public
+    // ======================================================
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
-        try {
-            // Encode password before saving
-            request.setPassword(passwordEncoder.encode(request.getPassword()));
+    public ResponseEntity<ApiResponse<CustomerProfile>> register(
+            @RequestBody RegisterRequest request
+    ) {
 
-            CustomerProfile createdCustomer = customerProfileService.createCustomer(request);
-            return ResponseEntity.ok(createdCustomer);
-        } catch (Exception e) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new ApiResponse(false, "Registration failed: " + e.getMessage()));
-        }
+        CustomerProfile customer =
+                customerProfileService.createCustomer(request);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "User registered successfully",
+                        customer
+                )
+        );
     }
 
-    // ---------------- LOGIN ----------------
+    // ======================================================
+    // POST /auth/login
+    // Public
+    // ======================================================
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        try {
-            CustomerProfile customer = customerProfileService.findByCustomerId(request.getEmail());
-            if (customer == null || !passwordEncoder.matches(request.getPassword(), customer.getPassword())) {
-                return ResponseEntity
-                        .status(401)
-                        .body(new ApiResponse(false, "Invalid email or password"));
-            }
+    public ResponseEntity<ApiResponse<String>> login(
+            @RequestBody LoginRequest request
+    ) {
 
-            return ResponseEntity.ok(new ApiResponse(true, "Login successful", customer));
-        } catch (Exception e) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new ApiResponse(false, "Login failed: " + e.getMessage()));
+        // 1️⃣ Find customer by email
+        CustomerProfile customer =
+                customerProfileService.findByEmail(request.getEmail());
+
+        // 2️⃣ Validate password
+        if (!passwordEncoder.matches(
+                request.getPassword(),
+                customer.getPassword()
+        )) {
+            return ResponseEntity.status(401).body(
+                    new ApiResponse<>(false, "Invalid email or password")
+            );
         }
+
+        // 3️⃣ Generate JWT token
+        String token = jwtUtil.generateToken(
+                customer.getId(),
+                customer.getEmail(),
+                customer.getRole()
+        );
+
+        // 4️⃣ Return token
+        return ResponseEntity.ok(
+                new ApiResponse<>(
+                        true,
+                        "Login successful",
+                        token
+                )
+        );
     }
 }
