@@ -28,24 +28,18 @@ public class AuthController {
         return ResponseEntity.ok(savedCustomer);
     }
 
-    // ---------------- LOGIN ----------------
+    // ---------------- LOGIN (DUMMY) ----------------
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody CustomerProfile request) {
 
-        // VERY DUMMY LOGIN (no password check)
-        CustomerProfile customer =
-                customerProfileService.getCustomerByEmail(request.getEmail());
-
-        if (customer == null) {
+        if (request.getEmail() == null || request.getEmail().isEmpty()) {
             return ResponseEntity.badRequest()
-                    .body("Invalid email");
+                    .body("Email is required");
         }
 
-        // Dummy token
         Map<String, Object> response = new HashMap<>();
-        response.put("token", "DUMMY-TOKEN-" + customer.getEmail());
-        response.put("customerId", customer.getId());
-        response.put("email", customer.getEmail());
+        response.put("token", "DUMMY-TOKEN-" + request.getEmail());
+        response.put("email", request.getEmail());
 
         return ResponseEntity.ok(response);
     }
