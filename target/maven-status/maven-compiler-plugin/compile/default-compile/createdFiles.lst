@@ -1,3 +1,4 @@
+com/example/demo/service/impl/VisitRecordServiceImpl.class
 com/example/demo/model/VisitRecord.class
 com/example/demo/exception/GlobalExceptionHandler.class
 com/example/demo/service/VisitRecordService.class
@@ -23,5 +24,6 @@ com/example/demo/controller/PurchaseRecordController.class
 com/example/demo/repository/VisitRecordRepository.class
 com/example/demo/service/impl/CustomerProfileServiceImpl.class
 com/example/demo/model/PurchaseRecord.class
+com/example/demo/service/impl/TierUpgradeRuleServiceImpl.class
 com/example/demo/service/TierUpgradeRuleService.class
 com/example/demo/controller/VisitRecordController.class
