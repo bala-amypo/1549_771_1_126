@@ -1,10 +1,19 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.model.*;
-import com.example.demo.repository.*;
+import com.example.demo.model.CustomerProfile;
+import com.example.demo.model.PurchaseRecord;
+import com.example.demo.model.VisitRecord;
+import com.example.demo.model.TierHistoryRecord;
+import com.example.demo.model.TierUpgradeRule;
+import com.example.demo.repository.CustomerProfileRepository;
+import com.example.demo.repository.PurchaseRecordRepository;
+import com.example.demo.repository.VisitRecordRepository;
+import com.example.demo.repository.TierUpgradeRuleRepository;
+import com.example.demo.repository.TierHistoryRecordRepository;
 import com.example.demo.service.TierUpgradeEngineService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -34,55 +43,68 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
     @Override
     public TierHistoryRecord evaluateAndUpgradeTier(Long customerId) {
 
-        // Fetch customer
         CustomerProfile customer = customerProfileRepository.findById(customerId)
                 .orElseThrow(() -> new NoSuchElementException("Customer not found"));
 
+        // ==========================
         // Calculate total spend
-        double totalSpend = purchaseRecordRepository
-                .findByCustomerId(customerId)
-                .stream()
+        // ==========================
+        List<PurchaseRecord> purchases =
+                purchaseRecordRepository.findByCustomerId(customerId);
+
+        double totalSpend = purchases.stream()
                 .mapToDouble(PurchaseRecord::getAmount)
                 .sum();
 
+        // ==========================
         // Calculate total visits
-        long totalVisits = visitRecordRepository
-                .findByCustomerId(customerId)
-                .size();
+        // ==========================
+        List<VisitRecord> visits =
+                visitRecordRepository.findByCustomerId(customerId);
+
+        int totalVisits = visits.size();
 
         String currentTier = customer.getCurrentTier();
 
-        // Find active upgrade rules for current tier
+        // ==========================
+        // Find active rules for current tier
+        // ==========================
         List<TierUpgradeRule> rules =
-                tierUpgradeRuleRepository.findByFromTierAndActiveTrue(currentTier);
+                tierUpgradeRuleRepository.findByActiveTrue();
 
         for (TierUpgradeRule rule : rules) {
+
+            if (!rule.getFromTier().equalsIgnoreCase(currentTier)) {
+                continue;
+            }
+
             boolean spendMet = totalSpend >= rule.getMinSpend();
             boolean visitsMet = totalVisits >= rule.getMinVisits();
 
             if (spendMet && visitsMet) {
 
-                String oldTier = customer.getCurrentTier();
+                String oldTier = currentTier;
                 String newTier = rule.getToTier();
 
                 // Update customer tier
                 customer.setCurrentTier(newTier);
                 customerProfileRepository.save(customer);
 
-                // Create tier history record
-                TierHistoryRecord historyRecord = new TierHistoryRecord(
-                        customerId,
-                        oldTier,
-                        newTier,
-                        rule.getReason(),
-                        null // changedAt handled by @PrePersist
-                );
+                // Save history record
+                TierHistoryRecord historyRecord =
+                        new TierHistoryRecord(
+                                customerId,
+                                oldTier,
+                                newTier,
+                                rule.getReason(),
+                                LocalDateTime.now()
+                        );
 
                 return tierHistoryRecordRepository.save(historyRecord);
             }
         }
 
-        // No upgrade applied
+        // No upgrade applicable
         return null;
     }
 
