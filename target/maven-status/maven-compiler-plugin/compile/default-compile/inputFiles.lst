@@ -9,7 +9,9 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeEngineController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/TierUpgradeRuleController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/VisitRecordController.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/dto/AuthResponse.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/dto/ApiResponse.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/dto/LoginRequest.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/dto/RegisterRequest.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/exception/CustomExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
