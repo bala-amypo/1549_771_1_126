@@ -1,59 +1,54 @@
-package com.example.demo.controller;
+package com.example.demo.model;
 
-import com.example.demo.model.TierUpgradeRule;
-import com.example.demo.service.TierUpgradeRuleService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import jakarta.persistence.*;
 
-import java.util.List;
+@Entity
+@Table(name = "tier_upgrade_rules")
+public class TierUpgradeRule {
 
-@RestController
-@RequestMapping("/api/tier-rules")
-public class TierUpgradeRuleController {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private final TierUpgradeRuleService tierUpgradeRuleService;
+    @Column(nullable = false)
+    private String fromTier;
 
-    // Constructor injection
-    public TierUpgradeRuleController(TierUpgradeRuleService tierUpgradeRuleService) {
-        this.tierUpgradeRuleService = tierUpgradeRuleService;
+    @Column(nullable = false)
+    private String toTier;
+
+    @Column(nullable = false)
+    private double minSpend;
+
+    @Column(nullable = false)
+    private long minVisits;
+
+    @Column(nullable = false)
+    private boolean active;
+
+    @Column(nullable = false)
+    private String reason;
+
+    public String getFromTier() {
+        return fromTier;
     }
 
-    // 1️⃣ POST /api/tier-rules → Create a new rule
-    @PostMapping
-    public ResponseEntity<TierUpgradeRule> createRule(@RequestBody TierUpgradeRule rule) {
-        TierUpgradeRule createdRule = tierUpgradeRuleService.createRule(rule);
-        return ResponseEntity.ok(createdRule);
+    public String getToTier() {
+        return toTier;
     }
 
-    // 2️⃣ PUT /api/tier-rules/{id} → Update an existing rule
-    @PutMapping("/{id}")
-    public ResponseEntity<TierUpgradeRule> updateRule(
-            @PathVariable Long id,
-            @RequestBody TierUpgradeRule rule) {
-        TierUpgradeRule updatedRule = tierUpgradeRuleService.updateRule(id, rule);
-        return ResponseEntity.ok(updatedRule);
+    public double getMinSpend() {
+        return minSpend;
     }
 
-    // 3️⃣ GET /api/tier-rules/active → Get all active rules
-    @GetMapping("/active")
-    public ResponseEntity<List<TierUpgradeRule>> getActiveRules() {
-        List<TierUpgradeRule> activeRules = tierUpgradeRuleService.getActiveRules();
-        return ResponseEntity.ok(activeRules);
+    public long getMinVisits() {
+        return minVisits;
     }
 
-    // 4️⃣ GET /api/tier-rules → Get all rules
-    @GetMapping
-    public ResponseEntity<List<TierUpgradeRule>> getAllRules() {
-        List<TierUpgradeRule> allRules = tierUpgradeRuleService.getAllRules();
-        return ResponseEntity.ok(allRules);
+    public boolean isActive() {
+        return active;
     }
 
-    // 5️⃣ GET /api/tier-rules/lookup?fromTier=BRONZE&toTier=SILVER → Get specific rule
-    @GetMapping("/lookup")
-    public ResponseEntity<TierUpgradeRule> getRule(
-            @RequestParam String fromTier,
-            @RequestParam String toTier) {
-        TierUpgradeRule rule = tierUpgradeRuleService.getRule(fromTier, toTier);
-        return ResponseEntity.ok(rule);
+    public String getReason() {
+        return reason;
     }
 }
