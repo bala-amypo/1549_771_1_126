@@ -28,6 +28,12 @@ public class TierUpgradeRule {
     @Column(nullable = false)
     private String reason;
 
+    // ===== GETTERS =====
+
+    public Long getId() {
+        return id;
+    }
+
     public String getFromTier() {
         return fromTier;
     }
@@ -44,11 +50,37 @@ public class TierUpgradeRule {
         return minVisits;
     }
 
-    public boolean isActive() {
+    public boolean getActive() {   // IMPORTANT: getActive(), not isActive()
         return active;
     }
 
     public String getReason() {
         return reason;
+    }
+
+    // ===== SETTERS =====
+
+    public void setFromTier(String fromTier) {
+        this.fromTier = fromTier;
+    }
+
+    public void setToTier(String toTier) {
+        this.toTier = toTier;
+    }
+
+    public void setMinSpend(double minSpend) {
+        this.minSpend = minSpend;
+    }
+
+    public void setMinVisits(long minVisits) {
+        this.minVisits = minVisits;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }
