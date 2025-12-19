@@ -1,95 +1,82 @@
-// package com.example.demo.controller;
+package com.example.demo.controller;
 
-// import com.example.demo.dto.ApiResponse;
-// import com.example.demo.dto.LoginRequest;
-// import com.example.demo.dto.RegisterRequest;
-// import com.example.demo.model.CustomerProfile;
-// import com.example.demo.service.CustomerProfileService;
-// import com.example.demo.util.JwtUtil;
+import com.example.demo.model.CustomerProfile;
+import com.example.demo.service.CustomerProfileService;
+import com.example.demo.util.JwtUtil;
+import com.example.demo.dto.LoginRequest;
+import com.example.demo.dto.RegisterRequest;
 
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.security.crypto.password.PasswordEncoder;
-// import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
-// @RestController
-// @RequestMapping("/auth")
-// public class AuthController {
+import java.util.HashMap;
+import java.util.Map;
 
-//     private final CustomerProfileService customerProfileService;
-//     private final JwtUtil jwtUtil;
-//     private final PasswordEncoder passwordEncoder;
+@RestController
+@RequestMapping("/auth")
+public class AuthController {
 
-//     // ==========================
-//     // Constructor Injection
-//     // ==========================
-//     public AuthController(
-//             CustomerProfileService customerProfileService,
-//             JwtUtil jwtUtil,
-//             PasswordEncoder passwordEncoder
-//     ) {
-//         this.customerProfileService = customerProfileService;
-//         this.jwtUtil = jwtUtil;
-//         this.passwordEncoder = passwordEncoder;
-//     }
+    private final CustomerProfileService customerProfileService;
+    private final JwtUtil jwtUtil;
+    private final PasswordEncoder passwordEncoder;
 
-//     // ======================================================
-//     // POST /auth/register
-//     // Public
-//     // ======================================================
-//     @PostMapping("/register")
-//     public ResponseEntity<ApiResponse<CustomerProfile>> register(
-//             @RequestBody RegisterRequest request
-//     ) {
+    public AuthController(CustomerProfileService customerProfileService,
+                          JwtUtil jwtUtil,
+                          PasswordEncoder passwordEncoder) {
+        this.customerProfileService = customerProfileService;
+        this.jwtUtil = jwtUtil;
+        this.passwordEncoder = passwordEncoder;
+    }
 
-//         CustomerProfile customer =
-//                 customerProfileService.createCustomer(request);
+    // ---------------- REGISTER ----------------
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
 
-//         return ResponseEntity.ok(
-//                 new ApiResponse<>(
-//                         true,
-//                         "User registered successfully",
-//                         customer
-//                 )
-//         );
-//     }
+        CustomerProfile customer = new CustomerProfile();
+        customer.setEmail(request.getEmail());
+        customer.setPassword(passwordEncoder.encode(request.getPassword()));
+        customer.setFullName(request.getFullName());
+        customer.setPhone(request.getPhone());
+        customer.setRole(request.getRole());
+        customer.setActive(true);
 
-//     // ======================================================
-//     // POST /auth/login
-//     // Public
-//     // ======================================================
-//     @PostMapping("/login")
-//     public ResponseEntity<ApiResponse<String>> login(
-//             @RequestBody LoginRequest request
-//     ) {
+        CustomerProfile savedCustomer =
+                customerProfileService.createCustomer(customer);
 
-//         // 1️⃣ Find customer by email
-//         CustomerProfile customer =
-//                 customerProfileService.findByEmail(request.getEmail());
+        return ResponseEntity.ok(savedCustomer);
+    }
 
-//         // 2️⃣ Validate password
-//         if (!passwordEncoder.matches(
-//                 request.getPassword(),
-//                 customer.getPassword()
-//         )) {
-//             return ResponseEntity.status(401).body(
-//                     new ApiResponse<>(false, "Invalid email or password")
-//             );
-//         }
+    // ---------------- LOGIN ----------------
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 
-//         // 3️⃣ Generate JWT token
-//         String token = jwtUtil.generateToken(
-//                 customer.getId(),
-//                 customer.getEmail(),
-//                 customer.getRole()
-//         );
+        CustomerProfile customer =
+                customerProfileService.findByEmail(request.getEmail());
 
-//         // 4️⃣ Return token
-//         return ResponseEntity.ok(
-//                 new ApiResponse<>(
-//                         true,
-//                         "Login successful",
-//                         token
-//                 )
-//         );
-//     }
-// }
+        if (customer == null) {
+            return ResponseEntity.badRequest()
+                    .body("Invalid email or password");
+        }
+
+        if (!passwordEncoder.matches(request.getPassword(), customer.getPassword())) {
+            return ResponseEntity.badRequest()
+                    .body("Invalid email or password");
+        }
+
+        // Generate dummy token
+        String token = jwtUtil.generateToken(
+                customer.getId(),
+                customer.getEmail(),
+                customer.getRole()
+        );
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("customerId", customer.getId());
+        response.put("email", customer.getEmail());
+        response.put("role", customer.getRole());
+
+        return ResponseEntity.ok(response);
+    }
+}
