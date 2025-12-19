@@ -44,12 +44,19 @@ public class TierUpgradeRuleServiceImpl implements TierUpgradeRuleService {
         return tierUpgradeRuleRepository.findByActiveTrue();
     }
 
-    @Override
-    public TierUpgradeRule getRule(String fromTier, String toTier) {
-        return tierUpgradeRuleRepository
-                .findByFromTierAndToTier(fromTier, toTier)
-                .orElseThrow(() -> new NoSuchElementException("Rule not found"));
+   @Override
+public TierUpgradeRule getRule(String fromTier, String toTier) {
+
+    List<TierUpgradeRule> rules =
+            tierUpgradeRuleRepository.findByFromTierAndToTier(fromTier, toTier);
+
+    if (rules.isEmpty()) {
+        throw new NoSuchElementException("Rule not found");
     }
+
+    return rules.get(0); // unique fromTier + toTier
+}
+
 
     @Override
     public List<TierUpgradeRule> getAllRules() {
