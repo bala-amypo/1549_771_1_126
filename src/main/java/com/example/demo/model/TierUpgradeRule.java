@@ -3,8 +3,7 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tier_upgrade_rules",
-       uniqueConstraints = @UniqueConstraint(columnNames = {"fromTier", "toTier"}))
+@Table(name = "tier_upgrade_rules")
 public class TierUpgradeRule {
 
     @Id
@@ -18,75 +17,38 @@ public class TierUpgradeRule {
     private String toTier;
 
     @Column(nullable = false)
-    private Double minSpend;
+    private double minSpend;
 
     @Column(nullable = false)
-    private Integer minVisits;
+    private long minVisits;
 
-    private Boolean active;
+    @Column(nullable = false)
+    private boolean active;
 
-    // No-arg constructor
-    public TierUpgradeRule() {
-    }
-
-    // Parameterized constructor
-    public TierUpgradeRule(String fromTier, String toTier, Double minSpend, Integer minVisits, Boolean active) {
-        setFromTier(fromTier);
-        setToTier(toTier);
-        setMinSpend(minSpend);
-        setMinVisits(minVisits);
-        this.active = active != null ? active : true;
-    }
-
-    // Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
+    @Column(nullable = false)
+    private String reason;
 
     public String getFromTier() {
         return fromTier;
-    }
-
-    public void setFromTier(String fromTier) {
-        this.fromTier = fromTier;
     }
 
     public String getToTier() {
         return toTier;
     }
 
-    public void setToTier(String toTier) {
-        this.toTier = toTier;
-    }
-
-    public Double getMinSpend() {
+    public double getMinSpend() {
         return minSpend;
     }
 
-    public void setMinSpend(Double minSpend) {
-        if (minSpend == null || minSpend < 0) {
-            throw new IllegalArgumentException("minSpend must be >= 0");
-        }
-        this.minSpend = minSpend;
-    }
-
-    public Integer getMinVisits() {
+    public long getMinVisits() {
         return minVisits;
     }
 
-    public void setMinVisits(Integer minVisits) {
-        if (minVisits == null || minVisits < 0) {
-            throw new IllegalArgumentException("minVisits must be >= 0");
-        }
-        this.minVisits = minVisits;
-    }
-
-    public Boolean getActive() {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active != null ? active : true;
+    public String getReason() {
+        return reason;
     }
 }
