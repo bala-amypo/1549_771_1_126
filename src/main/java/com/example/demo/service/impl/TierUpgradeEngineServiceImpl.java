@@ -96,7 +96,7 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
                                 customerId,
                                 oldTier,
                                 newTier,
-                               "Upgraded from " + oldTier + " to " + newTier
+                               "Upgraded from " + oldTier + " to " + newTier,
                                 LocalDateTime.now()
                         );
 
