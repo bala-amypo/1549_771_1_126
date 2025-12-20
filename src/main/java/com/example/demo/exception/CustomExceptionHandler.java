@@ -1,26 +1,26 @@
-// package com.example.demo.exception;
+package com.example.demo.exception;
 
-// import org.springframework.http.HttpStatus;
-// import org.springframework.http.ResponseEntity;
-// import org.springframework.web.bind.annotation.ExceptionHandler;
-// import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-// import java.time.LocalDateTime;
-// import java.util.HashMap;
-// import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
-// @RestControllerAdvice
-// public class CustomExceptionHandler {
+@RestControllerAdvice
+public class CustomExceptionHandler {
 
-//     @ExceptionHandler(IllegalArgumentException.class)
-//     public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(
-//             IllegalArgumentException ex) {
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(
+            IllegalArgumentException ex) {
 
-//         Map<String, Object> body = new HashMap<>();
-//         body.put("timestamp", LocalDateTime.now());
-//         body.put("status", HttpStatus.BAD_REQUEST.value());
-//         body.put("error", ex.getMessage());
+        Map<String, Object> body = new HashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.BAD_REQUEST.value());
+        body.put("error", ex.getMessage());
 
-//         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-//     }
-// }
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
+}
