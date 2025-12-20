@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.LoginRequest;
+import com.example.demo.dto.RegisterRequest;
 import com.example.demo.model.CustomerProfile;
 import com.example.demo.service.CustomerProfileService;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,13 @@ public class AuthController {
 
     // ---------------- REGISTER ----------------
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody CustomerProfile customer) {
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+
+        CustomerProfile customer = new CustomerProfile();
+        customer.setEmail(request.getEmail());
+        customer.setFullName(request.getFullName());
+        customer.setPhone(request.getPhone());
+        customer.setActive(true);
 
         CustomerProfile savedCustomer =
                 customerProfileService.createCustomer(customer);
@@ -30,11 +38,10 @@ public class AuthController {
 
     // ---------------- LOGIN (DUMMY) ----------------
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody CustomerProfile request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 
         if (request.getEmail() == null || request.getEmail().isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body("Email is required");
+            return ResponseEntity.badRequest().body("Email is required");
         }
 
         Map<String, Object> response = new HashMap<>();
