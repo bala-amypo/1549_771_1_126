@@ -84,7 +84,7 @@ public class CustomerProfile {
         }
     }
 
-    // 🔹 Getters & Setters
+    //  Getters & Setters
 
     public Long getId() {
         return id;
