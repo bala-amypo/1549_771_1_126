@@ -30,8 +30,7 @@ public class PurchaseRecordController {
         return new ResponseEntity<>(savedPurchase, HttpStatus.CREATED);
     }
 
-    // 2. GET /api/purchases/customer/{customerId}
-    // Access: Protected by JWT
+   
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<PurchaseRecord>> getPurchasesByCustomer(
             @PathVariable Long customerId) {
