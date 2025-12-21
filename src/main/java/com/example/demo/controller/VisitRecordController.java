@@ -18,28 +18,28 @@ public class VisitRecordController {
         this.visitRecordService = visitRecordService;
     }
 
-    // 1️⃣ POST /api/visits
+    //  POST
     @PostMapping
     public ResponseEntity<VisitRecord> recordVisit(@RequestBody VisitRecord visit) {
         VisitRecord savedVisit = visitRecordService.recordVisit(visit);
         return ResponseEntity.ok(savedVisit);
     }
 
-    // 2️⃣ GET /api/visits/customer/{customerId}
+    //  GET 
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<VisitRecord>> getVisitsByCustomer(@PathVariable Long customerId) {
         List<VisitRecord> visits = visitRecordService.getVisitsByCustomer(customerId);
         return ResponseEntity.ok(visits);
     }
 
-    // 3️⃣ GET /api/visits/{id}
+    //  GET /api/visits/{id}
     @GetMapping("/{id}")
     public ResponseEntity<VisitRecord> getVisitById(@PathVariable Long id) {
         VisitRecord visit = visitRecordService.getVisitById(id);
         return ResponseEntity.ok(visit);
     }
 
-    // 4️⃣ GET /api/visits
+    // GET /api/visits
     @GetMapping
     public ResponseEntity<List<VisitRecord>> getAllVisits() {
         List<VisitRecord> visits = visitRecordService.getAllVisits();

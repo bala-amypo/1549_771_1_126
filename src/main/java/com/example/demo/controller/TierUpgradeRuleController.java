@@ -51,5 +51,5 @@ return ResponseEntity.ok(allRules);
 public ResponseEntity<TierUpgradeRule> getRule(@RequestParam String fromTier,@RequestParam String toTier) {
 TierUpgradeRule rule = tierUpgradeRuleService.getRule(fromTier, toTier);
 return ResponseEntity.ok(rule);
-                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                        }
+}
+}
