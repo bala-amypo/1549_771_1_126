@@ -9,7 +9,7 @@ public interface CustomerProfileRepository extends JpaRepository<CustomerProfile
 
     Optional<CustomerProfile> findByCustomerId(String customerId);
 
-    Optional<CustomerProfile> findByEmail(String email);
+        Optional<CustomerProfile> findByEmail(String email);
 
-}
-
+        }
+        
