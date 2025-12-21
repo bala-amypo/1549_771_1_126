@@ -19,8 +19,7 @@ public class PurchaseRecordController {
         this.purchaseRecordService = purchaseRecordService;
     }
 
-    // 1. POST /api/purchases
-    // Access: Protected by JWT
+   
     @PostMapping
     public ResponseEntity<PurchaseRecord> recordPurchase(
             @RequestBody PurchaseRecord purchase) {
