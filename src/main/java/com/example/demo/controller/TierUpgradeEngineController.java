@@ -37,10 +37,7 @@ public class TierUpgradeEngineController {
         return ResponseEntity.ok(historyRecord);
     }
 
-    /**
-     * Get tier upgrade history for a specific customer
-     * Access: JWT Protected
-     */
+    
     @GetMapping("/history/{customerId}")
     public ResponseEntity<List<TierHistoryRecord>> getHistoryByCustomer(
             @PathVariable Long customerId

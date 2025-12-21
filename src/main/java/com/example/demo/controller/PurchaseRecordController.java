@@ -53,8 +53,7 @@ public class PurchaseRecordController {
         return ResponseEntity.ok(purchase);
     }
 
-    // 4. GET /api/purchases
-    // Access: Protected by JWT
+    
     @GetMapping
     public ResponseEntity<List<PurchaseRecord>> getAllPurchases() {
 
