@@ -42,16 +42,14 @@ public ResponseEntity<List<TierUpgradeRule>> getActiveRules() {
  //  GET - Get all rules
 @GetMapping
 public ResponseEntity<List<TierUpgradeRule>> getAllRules() {
-                                                                                                                                                                    List<TierUpgradeRule> allRules = tierUpgradeRuleService.getAllRules();
-                                                                                                                                                                            return ResponseEntity.ok(allRules);
-                                                                                                                                                                                }
+List<TierUpgradeRule> allRules = tierUpgradeRuleService.getAllRules();
+return ResponseEntity.ok(allRules);
+}
 
-                                                                                                                                                                                    // 5️⃣ GET /api/tier-rules/lookup?fromTier=BRONZE&toTier=SILVER → Get specific rule
-                                                                                                                                                                                        @GetMapping("/lookup")
-                                                                                                                                                                                            public ResponseEntity<TierUpgradeRule> getRule(
-                                                                                                                                                                                                        @RequestParam String fromTier,
-                                                                                                                                                                                                                    @RequestParam String toTier) {
-                                                                                                                                                                                                                            TierUpgradeRule rule = tierUpgradeRuleService.getRule(fromTier, toTier);
-                                                                                                                                                                                                                                    return ResponseEntity.ok(rule);
+// GET - Get specific rule
+@GetMapping("/lookup")
+public ResponseEntity<TierUpgradeRule> getRule(@RequestParam String fromTier,@RequestParam String toTier) {
+TierUpgradeRule rule = tierUpgradeRuleService.getRule(fromTier, toTier);
+return ResponseEntity.ok(rule);
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                         }
