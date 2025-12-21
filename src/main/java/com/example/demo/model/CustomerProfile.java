@@ -47,11 +47,11 @@ public class CustomerProfile {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // 🔹 No-arg constructor
+   
     public CustomerProfile() {
     }
 
-    // 🔹 Parameterized constructor
+   
     public CustomerProfile(
             String customerId,
             String fullName,
@@ -70,7 +70,7 @@ public class CustomerProfile {
         this.createdAt = createdAt;
     }
 
-    // 🔹 Default values before insert
+    //  Default values before insert
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
