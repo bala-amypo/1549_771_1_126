@@ -31,18 +31,17 @@ public ResponseEntity<TierUpgradeRule> updateRule(
 @PathVariable Long id, @RequestBody TierUpgradeRule rule) {
 TierUpgradeRule updatedRule = tierUpgradeRuleService.updateRule(id, rule);
 return ResponseEntity.ok(updatedRule);
-                                                                                                                }
+ }
 
-                                                                                                                    // 3️⃣ GET /api/tier-rules/active → Get all active rules
-                                                                                                                        @GetMapping("/active")
-                                                                                                                            public ResponseEntity<List<TierUpgradeRule>> getActiveRules() {
-                                                                                                                                    List<TierUpgradeRule> activeRules = tierUpgradeRuleService.getActiveRules();
-                                                                                                                                            return ResponseEntity.ok(activeRules);
-                                                                                                                                                }
-
-                                                                                                                                                    // 4️⃣ GET /api/tier-rules → Get all rules
-                                                                                                                                                        @GetMapping
-                                                                                                                                                            public ResponseEntity<List<TierUpgradeRule>> getAllRules() {
+//  GET - Get all active rules
+@GetMapping("/active")
+public ResponseEntity<List<TierUpgradeRule>> getActiveRules() {
+ List<TierUpgradeRule> activeRules = tierUpgradeRuleService.getActiveRules();
+ return ResponseEntity.ok(activeRules);
+ }
+ //  GET - Get all rules
+@GetMapping
+public ResponseEntity<List<TierUpgradeRule>> getAllRules() {
                                                                                                                                                                     List<TierUpgradeRule> allRules = tierUpgradeRuleService.getAllRules();
                                                                                                                                                                             return ResponseEntity.ok(allRules);
                                                                                                                                                                                 }
