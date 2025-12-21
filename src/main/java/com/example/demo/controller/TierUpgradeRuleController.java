@@ -22,16 +22,15 @@ this.tierUpgradeRuleService = tierUpgradeRuleService;
 @PostMapping
 public ResponseEntity<TierUpgradeRule> createRule(@RequestBody TierUpgradeRule rule) {
 TierUpgradeRule createdRule = tierUpgradeRuleService.createRule(rule);
-                                                    return ResponseEntity.ok(createdRule);
-                                                        }
+return ResponseEntity.ok(createdRule);
+}
 
-                                                            // 2️⃣ PUT /api/tier-rules/{id} → Update an existing rule
-                                                                @PutMapping("/{id}")
-                                                                    public ResponseEntity<TierUpgradeRule> updateRule(
-                                                                                @PathVariable Long id,
-                                                                                            @RequestBody TierUpgradeRule rule) {
-                                                                                                    TierUpgradeRule updatedRule = tierUpgradeRuleService.updateRule(id, rule);
-                                                                                                            return ResponseEntity.ok(updatedRule);
+//  PUT - Update an existing rule
+@PutMapping("/{id}")
+public ResponseEntity<TierUpgradeRule> updateRule(
+@PathVariable Long id, @RequestBody TierUpgradeRule rule) {
+TierUpgradeRule updatedRule = tierUpgradeRuleService.updateRule(id, rule);
+return ResponseEntity.ok(updatedRule);
                                                                                                                 }
 
                                                                                                                     // 3️⃣ GET /api/tier-rules/active → Get all active rules
