@@ -33,11 +33,7 @@ public class CustomerProfileController {
         return new ResponseEntity<>(createdCustomer, HttpStatus.CREATED);
     }
 
-    /**
-     * GET /api/customers/{id}
-     * Get customer by database ID
-     * Access: JWT Protected
-     */
+   
     @GetMapping("/{id}")
     public ResponseEntity<CustomerProfile> getCustomerById(
             @PathVariable Long id) {
