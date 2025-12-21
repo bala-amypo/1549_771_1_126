@@ -4,11 +4,9 @@ com/example/demo/exception/GlobalExceptionHandler.class
 com/example/demo/service/VisitRecordService.class
 com/example/demo/controller/CustomerProfileController.class
 com/example/demo/service/CustomerProfileService.class
-com/example/demo/dto/RegisterRequest.class
 com/example/demo/service/impl/TierUpgradeEngineServiceImpl.class
 com/example/demo/service/PurchaseRecordService.class
 com/example/demo/DemoApplication.class
-com/example/demo/dto/LoginRequest.class
 com/example/demo/service/PurchaseRecordServiceImpl.class
 com/example/demo/controller/TierUpgradeRuleController.class
 com/example/demo/repository/CustomerProfileRepository.class
@@ -27,7 +25,5 @@ com/example/demo/repository/VisitRecordRepository.class
 com/example/demo/service/impl/CustomerProfileServiceImpl.class
 com/example/demo/model/PurchaseRecord.class
 com/example/demo/service/impl/TierUpgradeRuleServiceImpl.class
-com/example/demo/dto/ApiResponse.class
 com/example/demo/service/TierUpgradeRuleService.class
-com/example/demo/controller/AuthController.class
 com/example/demo/controller/VisitRecordController.class
