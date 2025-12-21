@@ -11,17 +11,17 @@ import java.util.List;
 @RequestMapping("/api/tier-rules")
 public class TierUpgradeRuleController {
 
-    private final TierUpgradeRuleService tierUpgradeRuleService;
+private final TierUpgradeRuleService tierUpgradeRuleService;
 
-        // Constructor injection
-            public TierUpgradeRuleController(TierUpgradeRuleService tierUpgradeRuleService) {
-                    this.tierUpgradeRuleService = tierUpgradeRuleService;
-                        }
+// Constructor injection
+public TierUpgradeRuleController(TierUpgradeRuleService tierUpgradeRuleService) {
+this.tierUpgradeRuleService = tierUpgradeRuleService;
+}
 
-                            // 1️⃣ POST /api/tier-rules → Create a new rule
-                                @PostMapping
-                                    public ResponseEntity<TierUpgradeRule> createRule(@RequestBody TierUpgradeRule rule) {
-                                            TierUpgradeRule createdRule = tierUpgradeRuleService.createRule(rule);
+//  POST -Create a new rule
+@PostMapping
+public ResponseEntity<TierUpgradeRule> createRule(@RequestBody TierUpgradeRule rule) {
+TierUpgradeRule createdRule = tierUpgradeRuleService.createRule(rule);
                                                     return ResponseEntity.ok(createdRule);
                                                         }
 
@@ -57,4 +57,3 @@ public class TierUpgradeRuleController {
                                                                                                                                                                                                                                     return ResponseEntity.ok(rule);
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                         }
-                                                                                                                                                                                                                                        
