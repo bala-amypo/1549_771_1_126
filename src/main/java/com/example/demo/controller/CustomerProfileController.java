@@ -44,11 +44,7 @@ public class CustomerProfileController {
         return ResponseEntity.ok(customer);
     }
 
-    /**
-     * GET /api/customers
-     * Get all customers
-     * Access: JWT Protected
-     */
+    
     @GetMapping
     public ResponseEntity<List<CustomerProfile>> getAllCustomers() {
 
@@ -58,11 +54,7 @@ public class CustomerProfileController {
         return ResponseEntity.ok(customers);
     }
 
-    /**
-     * PUT /api/customers/{id}/tier?newTier=GOLD
-     * Update customer tier
-     * Access: JWT Protected
-     */
+   
     @PutMapping("/{id}/tier")
     public ResponseEntity<CustomerProfile> updateCustomerTier(
             @PathVariable Long id,
@@ -74,11 +66,7 @@ public class CustomerProfileController {
         return ResponseEntity.ok(updatedCustomer);
     }
 
-    /**
-     * GET /api/customers/lookup/{customerId}
-     * Find customer by business customerId
-     * Access: JWT Protected
-     */
+    
     @GetMapping("/lookup/{customerId}")
     public ResponseEntity<CustomerProfile> findByCustomerId(
             @PathVariable String customerId) {
