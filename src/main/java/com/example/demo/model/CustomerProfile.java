@@ -5,13 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(
-    name = "customer_profiles",
-    uniqueConstraints = {
-        @UniqueConstraint(columnNames = "customer_id"),
-        @UniqueConstraint(columnNames = "email"),
-        @UniqueConstraint(columnNames = "phone")
-    }
-)
+    name = "customer_profiles")
 public class CustomerProfile {
 
     // Primary Key
