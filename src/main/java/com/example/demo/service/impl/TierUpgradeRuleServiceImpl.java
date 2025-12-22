@@ -63,9 +63,9 @@ public TierUpgradeRule getRule(String fromTier, String toTier) {
         return tierUpgradeRuleRepository.findAll();
     }
 
-    // ==========================
+   
     // Validation
-    // ==========================
+
     private void validateRule(TierUpgradeRule rule) {
         if (rule.getMinSpend() == null || rule.getMinSpend() < 0) {
             throw new IllegalArgumentException("minSpend must be >= 0");
