@@ -12,7 +12,7 @@ public class PurchaseRecordServiceImpl implements PurchaseRecordService {
 
     private final PurchaseRecordRepository purchaseRecordRepository;
 
-    // Constructor injection (as per rules)
+    // Constructor injection 
     public PurchaseRecordServiceImpl(PurchaseRecordRepository purchaseRecordRepository) {
         this.purchaseRecordRepository = purchaseRecordRepository;
     }

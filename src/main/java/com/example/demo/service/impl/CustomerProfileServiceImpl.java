@@ -13,7 +13,7 @@ public class CustomerProfileServiceImpl implements CustomerProfileService {
 
     private final CustomerProfileRepository customerProfileRepository;
 
-    // Constructor Injection (MANDATORY as per rules)
+    // Constructor Injection
     public CustomerProfileServiceImpl(CustomerProfileRepository customerProfileRepository) {
         this.customerProfileRepository = customerProfileRepository;
     }

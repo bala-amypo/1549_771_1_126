@@ -40,15 +40,15 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
         this.tierHistoryRecordRepository = tierHistoryRecordRepository;
     }
 
-    @Override
-    public TierHistoryRecord evaluateAndUpgradeTier(Long customerId) {
+@Override
+public TierHistoryRecord evaluateAndUpgradeTier(Long customerId) {
 
-        CustomerProfile customer = customerProfileRepository.findById(customerId)
-                .orElseThrow(() -> new NoSuchElementException("Customer not found"));
+CustomerProfile customer = customerProfileRepository.findById(customerId)
+.orElseThrow(() -> new NoSuchElementException("Customer not found"));
 
-        // ==========================
+      
         // Calculate total spend
-        // ==========================
+        
         List<PurchaseRecord> purchases =
                 purchaseRecordRepository.findByCustomerId(customerId);
 
@@ -56,9 +56,9 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
                 .mapToDouble(PurchaseRecord::getAmount)
                 .sum();
 
-        // ==========================
+      
         // Calculate total visits
-        // ==========================
+   
         List<VisitRecord> visits =
                 visitRecordRepository.findByCustomerId(customerId);
 
@@ -66,9 +66,8 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
 
         String currentTier = customer.getCurrentTier();
 
-        // ==========================
         // Find active rules for current tier
-        // ==========================
+       
         List<TierUpgradeRule> rules =
                 tierUpgradeRuleRepository.findByActiveTrue();
 
