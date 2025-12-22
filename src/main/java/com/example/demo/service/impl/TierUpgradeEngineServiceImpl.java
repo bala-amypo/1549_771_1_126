@@ -47,51 +47,41 @@ CustomerProfile customer = customerProfileRepository.findById(customerId)
 .orElseThrow(() -> new NoSuchElementException("Customer not found"));
 
       
-        // Calculate total spend
+// Calculate total spend
         
-        List<PurchaseRecord> purchases =
-                purchaseRecordRepository.findByCustomerId(customerId);
+List<PurchaseRecord> purchases =
+purchaseRecordRepository.findByCustomerId(customerId);
 
-        double totalSpend = purchases.stream()
-                .mapToDouble(PurchaseRecord::getAmount)
-                .sum();
+double totalSpend = purchases.stream()
+.mapToDouble(PurchaseRecord::getAmount)
+.sum();
 
-      
-        // Calculate total visits
+// Calculate total visits
    
-        List<VisitRecord> visits =
-                visitRecordRepository.findByCustomerId(customerId);
-
-        int totalVisits = visits.size();
-
-        String currentTier = customer.getCurrentTier();
-
-        // Find active rules for current tier
-       
-        List<TierUpgradeRule> rules =
-                tierUpgradeRuleRepository.findByActiveTrue();
-
-        for (TierUpgradeRule rule : rules) {
-
-            if (!rule.getFromTier().equalsIgnoreCase(currentTier)) {
+ List<VisitRecord> visits =visitRecordRepository.findByCustomerId(customerId);
+int totalVisits = visits.size();
+String currentTier = customer.getCurrentTier();
+// Find active rules for current tier
+       List<TierUpgradeRule> rules =tierUpgradeRuleRepository.findByActiveTrue();
+for (TierUpgradeRule rule : rules) { if (!rule.getFromTier().equalsIgnoreCase(currentTier)) {
                 continue;
             }
 
-            boolean spendMet = totalSpend >= rule.getMinSpend();
-            boolean visitsMet = totalVisits >= rule.getMinVisits();
+    boolean spendMet = totalSpend >= rule.getMinSpend();
+    boolean visitsMet = totalVisits >= rule.getMinVisits();
 
-            if (spendMet && visitsMet) {
+    if (spendMet && visitsMet) {
 
-                String oldTier = currentTier;
-                String newTier = rule.getToTier();
+    String oldTier = currentTier;
+    String newTier = rule.getToTier();
 
-                // Update customer tier
-                customer.setCurrentTier(newTier);
-                customerProfileRepository.save(customer);
+    // Update customer tier
+    customer.setCurrentTier(newTier);
+    customerProfileRepository.save(customer);
 
-                // Save history record
-                TierHistoryRecord historyRecord =
-                        new TierHistoryRecord(
+    // Save history record
+    TierHistoryRecord historyRecord =
+    new TierHistoryRecord(
                                 customerId,
                                 oldTier,
                                 newTier,
