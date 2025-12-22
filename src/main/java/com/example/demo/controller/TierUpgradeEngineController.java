@@ -18,10 +18,7 @@ public class TierUpgradeEngineController {
         this.tierUpgradeEngineService = tierUpgradeEngineService;
     }
 
-    /**
-     * Evaluate and upgrade customer tier if criteria is met
-     * Access: JWT Protected
-     */
+   
     @PostMapping("/evaluate/{customerId}")
     public ResponseEntity<?> evaluateTier(@PathVariable Long customerId) {
 
@@ -47,10 +44,7 @@ public class TierUpgradeEngineController {
         );
     }
 
-    /**
-     * Get all tier upgrade history records
-     * Access: JWT Protected
-     */
+    
     @GetMapping
     public ResponseEntity<List<TierHistoryRecord>> getAllHistory() {
         return ResponseEntity.ok(

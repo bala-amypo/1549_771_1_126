@@ -41,8 +41,7 @@ public class PurchaseRecordController {
         return ResponseEntity.ok(purchases);
     }
 
-    // 3. GET /api/purchases/{id}
-    // Access: Protected by JWT
+    
     @GetMapping("/{id}")
     public ResponseEntity<PurchaseRecord> getPurchaseById(
             @PathVariable Long id) {

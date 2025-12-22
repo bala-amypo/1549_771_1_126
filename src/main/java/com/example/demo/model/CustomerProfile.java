@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(
-    name = "customer_profiles")
+@Table( name = "customer_profiles")
 public class CustomerProfile {
 
     // Primary Key

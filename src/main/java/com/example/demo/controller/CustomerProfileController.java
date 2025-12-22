@@ -18,11 +18,7 @@ public class CustomerProfileController {
         this.customerProfileService = customerProfileService;
     }
 
-    /**
-     * POST /api/customers
-     * Create a new customer profile
-     * Access: JWT Protected
-     */
+    
     @PostMapping
     public ResponseEntity<CustomerProfile> createCustomer(
             @RequestBody CustomerProfile customer) {
