@@ -82,11 +82,11 @@ for (TierUpgradeRule rule : rules) { if (!rule.getFromTier().equalsIgnoreCase(cu
     // Save history record
     TierHistoryRecord historyRecord =
     new TierHistoryRecord(
-                                customerId,
-                                oldTier,
-                                newTier,
-                               "Upgraded from " + oldTier + " to " + newTier,
-                                LocalDateTime.now()
+                        customerId,
+                        oldTier,
+                        newTier,
+                        "Upgraded from " + oldTier + " to " + newTier,
+                        LocalDateTime.now()
                         );
 
                 return tierHistoryRecordRepository.save(historyRecord);
