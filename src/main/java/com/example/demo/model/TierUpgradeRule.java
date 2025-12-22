@@ -75,7 +75,7 @@ public class TierUpgradeRule {
         return active;
     }
 
-    // ===== Setters =====
+    //  Setters
 
     public void setFromTier(String fromTier) {
         this.fromTier = fromTier;

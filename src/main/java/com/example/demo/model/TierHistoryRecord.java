@@ -51,7 +51,7 @@ public class TierHistoryRecord {
         this.changedAt = LocalDateTime.now();
     }
 
-    // ===== Getters =====
+    // Getters 
 
     public Long getId() {
         return id;
@@ -77,7 +77,7 @@ public class TierHistoryRecord {
         return changedAt;
     }
 
-    // ===== Setters =====
+    //  Setters 
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
