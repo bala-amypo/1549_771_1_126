@@ -1,8 +1,8 @@
-com/example/demo/service/impl/VisitRecordServiceImpl.class
 com/example/demo/model/VisitRecord.class
+com/example/demo/service/impl/VisitRecordServiceImpl.class
 com/example/demo/exception/GlobalExceptionHandler.class
-com/example/demo/service/VisitRecordService.class
 com/example/demo/controller/CustomerProfileController.class
+com/example/demo/service/VisitRecordService.class
 com/example/demo/service/CustomerProfileService.class
 com/example/demo/service/impl/TierUpgradeEngineServiceImpl.class
 com/example/demo/service/PurchaseRecordService.class
@@ -18,8 +18,8 @@ com/example/demo/config/SwaggerConfig.class
 com/example/demo/repository/TierUpgradeRuleRepository.class
 com/example/demo/repository/PurchaseRecordRepository.class
 com/example/demo/service/TierUpgradeEngineService.class
-com/example/demo/model/TierUpgradeRule.class
 com/example/demo/model/CustomerProfile.class
+com/example/demo/model/TierUpgradeRule.class
 com/example/demo/controller/PurchaseRecordController.class
 com/example/demo/repository/VisitRecordRepository.class
 com/example/demo/service/impl/CustomerProfileServiceImpl.class
