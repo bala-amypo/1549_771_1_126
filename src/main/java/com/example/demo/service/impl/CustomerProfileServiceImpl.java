@@ -5,7 +5,6 @@ import com.example.demo.repository.CustomerProfileRepository;
 import com.example.demo.service.CustomerProfileService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -13,61 +12,31 @@ public class CustomerProfileServiceImpl implements CustomerProfileService {
 
     private final CustomerProfileRepository customerProfileRepository;
 
-    // Constructor Injection
     public CustomerProfileServiceImpl(CustomerProfileRepository customerProfileRepository) {
         this.customerProfileRepository = customerProfileRepository;
     }
 
     @Override
-    public CustomerProfile createCustomer(CustomerProfile customer) {
-
-        // Check duplicate customerId
-        customerProfileRepository.findByCustomerId(customer.getCustomerId())
-                .ifPresent(existing -> {
-                    throw new IllegalArgumentException("Customer ID already exists");
-                });
-
-        // Default tier
-        if (customer.getCurrentTier() == null) {
-            customer.setCurrentTier("BRONZE");
+    public CustomerProfile getCustomerByCustomerId(String customerId) {
+        CustomerProfile customer = customerProfileRepository.findByCustomerId(customerId);
+        if (customer == null) {
+            throw new NoSuchElementException("Customer not found");
         }
+        return customer;
+    }
 
+    @Override
+    public CustomerProfile saveCustomer(CustomerProfile customer) {
         return customerProfileRepository.save(customer);
     }
 
     @Override
-   CustomerProfile customer = customerRepository.findByCustomerId(id);
-if (customer == null) {
-    throw new NoSuchElementException("Customer not found");
-}
-
-
-    @Override
-    public CustomerProfile findByCustomerId(String customerId) {
-        return customerProfileRepository.findByCustomerId(customerId)
-                .orElseThrow(() -> new NoSuchElementException("Customer not found"));
-    }
-
-    @Override
-    public List<CustomerProfile> getAllCustomers() {
-        return customerProfileRepository.findAll();
-    }
-
-    @Override
-    public CustomerProfile updateTier(Long id, String newTier) {
-        CustomerProfile customer = customerProfileRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Customer not found"));
-
-        customer.setCurrentTier(newTier);
-        return customerProfileRepository.save(customer);
-    }
-
-    @Override
-    public CustomerProfile updateStatus(Long id, boolean active) {
-        CustomerProfile customer = customerProfileRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Customer not found"));
-
-        customer.setActive(active);
-        return customerProfileRepository.save(customer);
+    public void deactivateCustomer(String customerId) {
+        CustomerProfile customer = customerProfileRepository.findByCustomerId(customerId);
+        if (customer == null) {
+            throw new NoSuchElementException("Customer not found");
+        }
+        customer.setActive(false);
+        customerProfileRepository.save(customer);
     }
 }
