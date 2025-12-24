@@ -35,6 +35,8 @@ public class PurchaseRecordServiceImpl implements PurchaseRecordService {
     public List<PurchaseRecord> getPurchasesByCustomer(Long customerId) {
         return purchaseRecordRepository.findByCustomerId(customerId);
     }
+   
+
 
     // Get all purchases
     @Override
