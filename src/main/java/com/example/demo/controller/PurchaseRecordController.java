@@ -33,7 +33,8 @@ public class PurchaseRecordController {
    
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<PurchaseRecord>> getPurchasesByCustomer(
-            @PathVariable Long customerId) {
+            @PathVariable String customerId) {
+
 
         List<PurchaseRecord> purchases =
                 purchaseRecordService.getPurchasesByCustomer(customerId);
