@@ -26,11 +26,11 @@ public class VisitRecordController {
     }
 
     //  GET 
-    @GetMapping("/customer/{customerId}")
-    public ResponseEntity<List<VisitRecord>> getVisitsByCustomer(@PathVariable Long customerId) {
-        List<VisitRecord> visits = visitRecordService.getVisitsByCustomer(customerId);
-        return ResponseEntity.ok(visits);
-    }
+   @GetMapping("/customer/{customerId}")
+public List<VisitRecord> getVisitsByCustomer(@PathVariable String customerId) {
+    return visitRecordService.getVisitsByCustomer(customerId);
+}
+
 
     //  GET /api/visits/{id}
     @GetMapping("/{id}")
