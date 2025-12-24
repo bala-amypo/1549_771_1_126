@@ -39,4 +39,8 @@ public class CustomerProfile {
     public boolean isActive() { return active; }
 
     // getters/setters
+    public String getCustomerId() {
+    return customerId;
+}
+
 }
