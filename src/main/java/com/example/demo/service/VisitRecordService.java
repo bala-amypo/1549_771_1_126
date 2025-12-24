@@ -7,7 +7,7 @@ public interface VisitRecordService {
 
     VisitRecord recordVisit(VisitRecord visit);
 
-    List<VisitRecord> getVisitsByCustomer(Long customerId);
+    List<VisitRecord> getVisitsByCustomer(String customerId);
 
     List<VisitRecord> getAllVisits();
 
