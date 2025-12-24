@@ -24,6 +24,9 @@ public class TierHistoryRecord {
     @Column(nullable = false)
     private LocalDateTime upgradeTime;
 
+   @Column(nullable = false)
+private String reason;
+
     public TierHistoryRecord() {}
 
     // getters
@@ -63,4 +66,12 @@ public class TierHistoryRecord {
     public void setUpgradeTime(LocalDateTime upgradeTime) {
         this.upgradeTime = upgradeTime;
     }
+    public String getReason() {
+    return reason;
+}
+
+public void setReason(String reason) {
+    this.reason = reason;
+}
+
 }
