@@ -11,102 +11,56 @@ public class TierHistoryRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "customer_id", nullable = false)
-   private String customerId;
-
-
-    @Column(name = "old_tier", nullable = false)
-    private String oldTier;
-
-    @Column(name = "new_tier", nullable = false)
-    private String newTier;
+    // IMPORTANT: customerId MUST be String
+    @Column(nullable = false)
+    private String customerId;
 
     @Column(nullable = false)
-    private String reason;
+    private String fromTier;
 
-    @Column(name = "changed_at", nullable = false, updatable = false)
-    private LocalDateTime changedAt;
+    @Column(nullable = false)
+    private String toTier;
 
-    // No-arg constructor
-    public TierHistoryRecord() {
-    }
+    @Column(nullable = false)
+    private LocalDateTime upgradeTime;
 
-    // Parameterized constructor
-    public TierHistoryRecord(
-          
-            String oldTier,
-            String newTier,
-            String reason,
-            LocalDateTime changedAt
-    ) {
-        this.customerId = customerId;
-        this.oldTier = oldTier;
-        this.newTier = newTier;
-        this.reason = reason;
-        this.changedAt = changedAt;
-    }
+    public TierHistoryRecord() {}
 
-    // Auto-generate timestamp before persist
-    @PrePersist
-    protected void onCreate() {
-        this.changedAt = LocalDateTime.now();
-    }
-
-    // Getters 
-
+    // getters
     public Long getId() {
         return id;
     }
 
-    public Long getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public String getOldTier() {
-        return oldTier;
+    public String getFromTier() {
+        return fromTier;
     }
 
-    public String getNewTier() {
-        return newTier;
+    public String getToTier() {
+        return toTier;
     }
 
-    public String getReason() {
-        return reason;
+    public LocalDateTime getUpgradeTime() {
+        return upgradeTime;
     }
 
-    public LocalDateTime getChangedAt() {
-        return changedAt;
-    }
-
-    //  Setters 
-
-  
+    // setters
     public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-}
-
-
-    public void setOldTier(String oldTier) {
-        this.oldTier = oldTier;
+        this.customerId = customerId;
     }
 
-    public void setNewTier(String newTier) {
-        this.newTier = newTier;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
     public void setFromTier(String fromTier) {
-    this.fromTier = fromTier;
-}
+        this.fromTier = fromTier;
+    }
 
-public void setToTier(String toTier) {
-    this.toTier = toTier;
-}
+    public void setToTier(String toTier) {
+        this.toTier = toTier;
+    }
 
-public void setUpgradeTime(LocalDateTime upgradeTime) {
-    this.upgradeTime = upgradeTime;
-}
-
+    public void setUpgradeTime(LocalDateTime upgradeTime) {
+        this.upgradeTime = upgradeTime;
+    }
 }
