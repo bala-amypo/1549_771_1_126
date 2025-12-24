@@ -43,5 +43,14 @@ public class CustomerProfile {
     public String getCustomerId() {
     return customerId;
 }
+private String tier;
+
+public String getTier() {
+    return tier;
+}
+
+public void setTier(String tier) {
+    this.tier = tier;
+}
 
 }
