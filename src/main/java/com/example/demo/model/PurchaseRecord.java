@@ -1,7 +1,3 @@
-package com.example.demo.model;
-
-import jakarta.persistence.*;
-
 @Entity
 public class PurchaseRecord {
 
@@ -14,17 +10,11 @@ public class PurchaseRecord {
     @ManyToOne
     private CustomerProfile customer;
 
-    // ===== REQUIRED BY TEST =====
+    public double getAmount() {
+        return amount;
+    }
+
     public void setCustomer(CustomerProfile customer) {
         this.customer = customer;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    // ===== GETTERS =====
-    public CustomerProfile getCustomer() {
-        return customer;
     }
 }

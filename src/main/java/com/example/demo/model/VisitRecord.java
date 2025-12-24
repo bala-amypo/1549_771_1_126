@@ -1,7 +1,3 @@
-package com.example.demo.model;
-
-import jakarta.persistence.*;
-
 @Entity
 public class VisitRecord {
 
@@ -9,15 +5,16 @@ public class VisitRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String channel;
+
     @ManyToOne
     private CustomerProfile customer;
 
-    // ===== REQUIRED BY TEST =====
-    public void setCustomer(CustomerProfile customer) {
-        this.customer = customer;
+    public String getChannel() {
+        return channel;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCustomer(CustomerProfile customer) {
+        this.customer = customer;
     }
 }

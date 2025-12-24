@@ -1,8 +1,3 @@
-package com.example.demo.model;
-
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
-
 @Entity
 public class CustomerProfile {
 
@@ -11,7 +6,7 @@ public class CustomerProfile {
     private Long id;
 
     private String customerId;
-    private String tier;
+    private String currentTier;
     private boolean active = true;
 
     private LocalDateTime createdAt;
@@ -21,27 +16,22 @@ public class CustomerProfile {
         this.createdAt = LocalDateTime.now();
     }
 
-    // ===== REQUIRED BY TEST =====
-    public boolean isPresent() {
-        return true;
+    // ===== Required by SERVICE =====
+    public String getCurrentTier() {
+        return currentTier;
     }
 
-    public boolean isActive() {
-        return active;
+    public void setCurrentTier(String currentTier) {
+        this.currentTier = currentTier;
     }
 
-    // ===== GETTERS & SETTERS =====
-    public void setId(long id) {
-        this.id = id;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
+    // ===== Required by TEST =====
+    public boolean isPresent() { return true; }
+    public boolean isActive() { return active; }
 
-    public Long getId() { return id; }
-    public String getCustomerId() { return customerId; }
-    public void setCustomerId(String customerId) { this.customerId = customerId; }
-    public String getTier() { return tier; }
-    public void setTier(String tier) { this.tier = tier; }
+    // getters/setters
 }

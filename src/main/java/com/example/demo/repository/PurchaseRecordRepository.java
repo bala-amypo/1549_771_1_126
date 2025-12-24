@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PurchaseRecordRepository extends JpaRepository<PurchaseRecord, Long> {
 
     PurchaseRecord getPurchaseById(Long id);
+    List<PurchaseRecord> findByCustomerId(Long customerId);
+
 }
