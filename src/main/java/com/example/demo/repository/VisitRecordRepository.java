@@ -3,9 +3,10 @@ package com.example.demo.repository;
 import com.example.demo.model.VisitRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VisitRecordRepository extends JpaRepository<VisitRecord, Long> {
+import java.util.List;
 
-    VisitRecord getVisitById(Long id);
-    List<VisitRecord> findByCustomerId(Long customerId);
+public interface VisitRecordRepository
+        extends JpaRepository<VisitRecord, Long> {
 
+    List<VisitRecord> findByCustomerId(String customerId);
 }
