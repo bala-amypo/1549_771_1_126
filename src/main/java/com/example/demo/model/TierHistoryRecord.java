@@ -12,7 +12,8 @@ public class TierHistoryRecord {
     private Long id;
 
     @Column(name = "customer_id", nullable = false)
-    private Long customerId;
+   private String customerId;
+
 
     @Column(name = "old_tier", nullable = false)
     private String oldTier;
@@ -32,7 +33,7 @@ public class TierHistoryRecord {
 
     // Parameterized constructor
     public TierHistoryRecord(
-            Long customerId,
+          
             String oldTier,
             String newTier,
             String reason,
