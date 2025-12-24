@@ -1,10 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.CustomerProfile;
+import com.example.demo.model.PurchaseRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;   // ✅ ADD THIS
 
-public interface CustomerProfileRepository extends JpaRepository<CustomerProfile, Long> {
-
-    CustomerProfile findByCustomerId(String customerId);
-    
+public interface PurchaseRecordRepository extends JpaRepository<PurchaseRecord, Long> {
+    List<PurchaseRecord> findByCustomerId(Long customerId);
 }
