@@ -15,6 +15,7 @@ public class CustomerProfile {
     private boolean active = true;
 
     private LocalDateTime createdAt;
+    
 
     @PrePersist
     public void prePersist() {

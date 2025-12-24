@@ -11,37 +11,58 @@ public class TierUpgradeRule {
 
     private String fromTier;
     private String toTier;
-    private double minSpend;
-    private int minVisits;
-    private boolean active = true;
 
-    public String getFromTier() { return fromTier; }
-    public String getToTier() { return toTier; }
-    public double getMinSpend() { return minSpend; }
-    public int getMinVisits() { return minVisits; }
-    public boolean getActive() { return active; }
+    private Boolean active = true;   // wrapper is better for JPA
+    private Double minSpend;
+    private Integer minVisits;
 
-    public boolean isActive() { return active; }
-    public boolean isPresent() { return true; }
+    // ✅ GETTERS
+    public Long getId() {
+        return id;
+    }
 
+    public String getFromTier() {
+        return fromTier;
+    }
+
+    public String getToTier() {
+        return toTier;
+    }
+
+    public Double getMinSpend() {     // ✅ wrapper
+        return minSpend;
+    }
+
+    public Integer getMinVisits() {   // ✅ wrapper
+        return minVisits;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public boolean isActive() {
+        return Boolean.TRUE.equals(active);
+    }
+
+    // ✅ SETTERS
     public void setFromTier(String fromTier) {
-    this.fromTier = fromTier;
-}
+        this.fromTier = fromTier;
+    }
 
-public void setToTier(String toTier) {
-    this.toTier = toTier;
-}
+    public void setToTier(String toTier) {
+        this.toTier = toTier;
+    }
 
-public void setMinSpend(double minSpend) {
-    this.minSpend = minSpend;
-}
+    public void setMinSpend(Double minSpend) {   // ✅ wrapper
+        this.minSpend = minSpend;
+    }
 
-public void setMinVisits(int minVisits) {
-    this.minVisits = minVisits;
-}
+    public void setMinVisits(Integer minVisits) { // ✅ wrapper
+        this.minVisits = minVisits;
+    }
 
-public void setActive(boolean active) {
-    this.active = active;
-}
-
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 }
