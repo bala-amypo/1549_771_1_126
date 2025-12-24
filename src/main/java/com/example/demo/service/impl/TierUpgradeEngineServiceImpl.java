@@ -46,11 +46,12 @@ public TierHistoryRecord evaluateAndUpgradeTier(Long customerId) {
 CustomerProfile customer = customerProfileRepository.findById(customerId)
 .orElseThrow(() -> new NoSuchElementException("Customer not found"));
 
-      
+
+     
 // Calculate total spend
         
 List<PurchaseRecord> purchases =
-purchaseRecordRepository.findByCustomerId(customerId);
+ purchaseRepository.findByCustomerId(customer.getCustomerId());
 
 double totalSpend = purchases.stream()
 .mapToDouble(PurchaseRecord::getAmount)
