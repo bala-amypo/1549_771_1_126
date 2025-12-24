@@ -1,7 +1,8 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.model.PurchaseRecord;
 import com.example.demo.repository.PurchaseRecordRepository;
+import com.example.demo.service.PurchaseRecordService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,39 +13,31 @@ public class PurchaseRecordServiceImpl implements PurchaseRecordService {
 
     private final PurchaseRecordRepository purchaseRecordRepository;
 
-    // Constructor injection 
     public PurchaseRecordServiceImpl(PurchaseRecordRepository purchaseRecordRepository) {
         this.purchaseRecordRepository = purchaseRecordRepository;
     }
 
-    // Record a purchase
     @Override
     public PurchaseRecord recordPurchase(PurchaseRecord purchase) {
 
-        // Validation rule
         if (purchase.getAmount() <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
 
-        // Save purchase
         return purchaseRecordRepository.save(purchase);
     }
 
-    // Get purchases by customer ID
+    // ✅ FIXED: customerId must be String
     @Override
-    public List<PurchaseRecord> getPurchasesByCustomer(Long customerId) {
+    public List<PurchaseRecord> getPurchasesByCustomer(String customerId) {
         return purchaseRecordRepository.findByCustomerId(customerId);
     }
-   
 
-
-    // Get all purchases
     @Override
     public List<PurchaseRecord> getAllPurchases() {
         return purchaseRecordRepository.findAll();
     }
 
-    // Get purchase by ID
     @Override
     public PurchaseRecord getPurchaseById(Long id) {
         return purchaseRecordRepository.findById(id)

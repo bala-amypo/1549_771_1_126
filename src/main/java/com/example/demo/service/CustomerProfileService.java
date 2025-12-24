@@ -5,13 +5,15 @@ import java.util.List;
 
 public interface CustomerProfileService {
 
-    CustomerProfile create(CustomerProfile customer);
+    CustomerProfile createCustomer(CustomerProfile customer);
 
-    CustomerProfile getById(Long id);
+    CustomerProfile getCustomerById(Long id);
 
-    List<CustomerProfile> getAll();
+    List<CustomerProfile> getAllCustomers();
 
-    CustomerProfile update(Long id, CustomerProfile customer);
+    CustomerProfile updateTier(Long id, String newTier);
+
+    CustomerProfile findByCustomerId(String customerId);
 
     void updateStatus(Long id, boolean active);
 }
