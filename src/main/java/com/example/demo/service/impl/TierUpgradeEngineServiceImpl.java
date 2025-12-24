@@ -26,20 +26,7 @@ public class TierUpgradeEngineServiceImpl implements TierUpgradeEngineService {
     private final TierUpgradeRuleRepository tierUpgradeRuleRepository;
     private final TierHistoryRecordRepository tierHistoryRecordRepository;
 
-   private final PurchaseRecordRepository purchaseRepository;
-
-public TierUpgradeEngineServiceImpl(
-        PurchaseRecordRepository purchaseRepository,
-        VisitRecordRepository visitRecordRepository,
-        TierUpgradeRuleRepository tierUpgradeRuleRepository,
-        CustomerProfileRepository customerProfileRepository
-) {
-    this.purchaseRepository = purchaseRepository;
-    this.visitRecordRepository = visitRecordRepository;
-    this.tierUpgradeRuleRepository = tierUpgradeRuleRepository;
-    this.customerProfileRepository = customerProfileRepository;
-}
-
+   
 
 @Override
 public TierHistoryRecord evaluateAndUpgradeTier(Long customerId) {
