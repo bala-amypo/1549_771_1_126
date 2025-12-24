@@ -13,6 +13,7 @@ public class VisitRecordServiceImpl implements VisitRecordService {
 
     private final VisitRecordRepository visitRecordRepository;
 
+    // Constructor injection
     public VisitRecordServiceImpl(VisitRecordRepository visitRecordRepository) {
         this.visitRecordRepository = visitRecordRepository;
     }
@@ -20,20 +21,26 @@ public class VisitRecordServiceImpl implements VisitRecordService {
     // 1. Record a visit
     @Override
     public VisitRecord recordVisit(VisitRecord visit) {
+        // Channel validation
         String channel = visit.getChannel();
         if (!"STORE".equalsIgnoreCase(channel)
                 && !"APP".equalsIgnoreCase(channel)
                 && !"WEB".equalsIgnoreCase(channel)) {
             throw new IllegalArgumentException("Invalid channel");
         }
+        // Save visit record
         return visitRecordRepository.save(visit);
     }
 
     // 2. Get visits by customer ID
     @Override
-    public List<VisitRecord> getVisitsByCustomer(String customerId) {
+     public List<VisitRecord> getVisitsByCustomer(String customerId) {
         return visitRecordRepository.findByCustomerId(customerId);
     }
+
+  
+
+
 
     // 3. Get all visits
     @Override
