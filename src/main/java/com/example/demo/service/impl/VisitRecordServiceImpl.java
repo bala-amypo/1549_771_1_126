@@ -35,8 +35,11 @@ public class VisitRecordServiceImpl implements VisitRecordService {
     // 2. Get visits by customer ID
     @Override
     public List<VisitRecord> getVisitsByCustomer(Long customerId) {
-        return visitRecordRepository.findByCustomerId(customerId);
+        return visitRecordRepository. findByCustomerId(customer.getCustomerId());
     }
+
+    
+
 
     // 3. Get all visits
     @Override

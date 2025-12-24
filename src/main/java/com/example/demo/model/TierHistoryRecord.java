@@ -80,9 +80,11 @@ public class TierHistoryRecord {
 
     //  Setters 
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
+  
+    public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+}
+
 
     public void setOldTier(String oldTier) {
         this.oldTier = oldTier;
@@ -95,4 +97,16 @@ public class TierHistoryRecord {
     public void setReason(String reason) {
         this.reason = reason;
     }
+    public void setFromTier(String fromTier) {
+    this.fromTier = fromTier;
+}
+
+public void setToTier(String toTier) {
+    this.toTier = toTier;
+}
+
+public void setUpgradeTime(LocalDateTime upgradeTime) {
+    this.upgradeTime = upgradeTime;
+}
+
 }
