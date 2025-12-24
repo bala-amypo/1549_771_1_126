@@ -12,6 +12,6 @@ public interface TierUpgradeRuleRepository
     // Active rules
     List<TierUpgradeRule> findByActiveTrue();
 
-    // Specific rule
-    Optional<TierUpgradeRule> findByFromTierAndToTier(String fromTier, String toTier);
+   List<TierUpgradeRule> findByFromTierAndToTier(String fromTier, String toTier);
+
 }
