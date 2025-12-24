@@ -23,4 +23,25 @@ public class TierUpgradeRule {
 
     public boolean isActive() { return active; }
     public boolean isPresent() { return true; }
+
+    public void setFromTier(String fromTier) {
+    this.fromTier = fromTier;
+}
+
+public void setToTier(String toTier) {
+    this.toTier = toTier;
+}
+
+public void setMinSpend(double minSpend) {
+    this.minSpend = minSpend;
+}
+
+public void setMinVisits(int minVisits) {
+    this.minVisits = minVisits;
+}
+
+public void setActive(boolean active) {
+    this.active = active;
+}
+
 }
