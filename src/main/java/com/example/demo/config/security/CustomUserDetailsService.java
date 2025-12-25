@@ -15,7 +15,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.customerProfileRepository = customerProfileRepository;
     }
 
-   @Override
+  @Override
 public UserDetails loadUserByUsername(String email)
         throws UsernameNotFoundException {
 
@@ -27,7 +27,7 @@ public UserDetails loadUserByUsername(String email)
 
     return new org.springframework.security.core.userdetails.User(
             customer.getEmail(),
-            customer.getPassword(),   // see NOTE below
+            customer.getPassword(),
             List.of(new SimpleGrantedAuthority("ROLE_" + customer.getRole()))
     );
 }
