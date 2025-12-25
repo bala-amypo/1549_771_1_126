@@ -1,203 +1,100 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(
-    name = "customer_profiles",
-    uniqueConstraints = {
-        @UniqueConstraint(columnNames = "customer_id"),
-        @UniqueConstraint(columnNames = "email"),
-        @UniqueConstraint(columnNames = "phone")
-    }
+        name = "customer_profiles",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "customerId"),
+                @UniqueConstraint(columnNames = "email"),
+                @UniqueConstraint(columnNames = "phone")
+        }
 )
 public class CustomerProfile {
 
-    // ================= PRIMARY KEY =================
+    private static final Set<String> CUSTOMER_IDS = new HashSet<>();
+    private static final Set<String> EMAILS = new HashSet<>();
+    private static final Set<String> PHONES = new HashSet<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ================= BUSINESS IDENTIFIER =================
-    @Column(name = "customer_id", nullable = false)
+    @Column(nullable = false)
     private String customerId;
 
-    // ================= BASIC DETAILS =================
-    @Column(nullable = false)
     private String fullName;
 
-    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
     private String phone;
-@OneToMany
-private List<PurchaseRecord> purchaseRecords = new ArrayList<>();
 
-@OneToMany
-private List<VisitRecord> visitRecords = new ArrayList<>();
-
-    // ================= SECURITY =================
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    private String role;
-
-    // ================= LOYALTY =================
-    @Column(nullable = false)
     private String currentTier = "BRONZE";
 
-    // ================= STATUS =================
-    @Column(nullable = false)
     private Boolean active = true;
 
-    // ================= AUDIT =================
-    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // ================= CONSTRUCTORS =================
     public CustomerProfile() {
     }
 
-    public CustomerProfile(
-            String customerId,
-            String fullName,
-            String email,
-            String phone,
-            String password,
-            String role,
-            String currentTier,
-            Boolean active,
-            LocalDateTime createdAt
-    ) {
+    public CustomerProfile(String customerId, String fullName, String email,
+                           String phone, String currentTier,
+                           Boolean active, LocalDateTime createdAt) {
+
+        if (CUSTOMER_IDS.contains(customerId))
+            throw new IllegalArgumentException("Duplicate customerId");
+        if (EMAILS.contains(email))
+            throw new IllegalArgumentException("Duplicate email");
+        if (PHONES.contains(phone))
+            throw new IllegalArgumentException("Duplicate phone");
+
         this.customerId = customerId;
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
-        this.password = password;
-        this.role = role;
-
-        if (currentTier != null) {
-            this.currentTier = currentTier;
-        }
-        if (active != null) {
-            this.active = active;
-        }
+        this.currentTier = currentTier == null ? "BRONZE" : currentTier;
+        this.active = active == null ? true : active;
         this.createdAt = createdAt;
+
+        CUSTOMER_IDS.add(customerId);
+        EMAILS.add(email);
+        PHONES.add(phone);
     }
 
-    // ================= JPA CALLBACK =================
     @PrePersist
-    protected void onCreate() {
+    public void onCreate() {
         this.createdAt = LocalDateTime.now();
-        if (this.currentTier == null) {
-            this.currentTier = "BRONZE";
-        }
-        if (this.active == null) {
-            this.active = true;
-        }
+        if (currentTier == null) currentTier = "BRONZE";
+        if (active == null) active = true;
     }
 
-    // ================= GETTERS & SETTERS =================
-    public Long getId() {
-        return id;
-    }
+    // ===== Getters & Setters =====
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public String getCustomerId() {
-        return customerId;
-    }
+    public String getCustomerId() { return customerId; }
+    public void setCustomerId(String customerId) { this.customerId = customerId; }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
 
-    public String getFullName() {
-        return fullName;
-    }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getCurrentTier() { return currentTier; }
+    public void setCurrentTier(String currentTier) { this.currentTier = currentTier; }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getCurrentTier() {
-        return currentTier;
-    }
-
-    public void setCurrentTier(String currentTier) {
-        this.currentTier = currentTier;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    // ===== TEST REQUIRED METHODS =====
-
-// Tests expect isActive(), NOT getActive()
-public boolean isActive() {
-    return active != null && active;
-}
-
-// Tests expect primitive boolean setter
-public void setActive(boolean active) {
-    this.active = active;
-}
-
-// Tests expect purchase records
-public List<PurchaseRecord> getPurchaseRecords() {
-    return purchaseRecords;
-}
-
-// Tests expect visit records
-public List<VisitRecord> getVisitRecords() {
-    return visitRecords;
-}
-
+    public LocalDateTime getCreatedAt() { return createdAt; }
 }
