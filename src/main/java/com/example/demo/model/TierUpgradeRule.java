@@ -102,4 +102,22 @@ public class TierUpgradeRule {
     public void setActive(Boolean active) {
         this.active = active;
     }
+
+    // ===== TEST REQUIRED METHODS =====
+
+// Tests expect isPresent(), NOT getActive()
+public boolean isPresent() {
+    return active != null && active;
+}
+
+// Tests expect required amount
+public Double getRequiredAmount() {
+    return minSpend;
+}
+
+// Tests expect required visits
+public Integer getRequiredVisits() {
+    return minVisits;
+}
+
 }
