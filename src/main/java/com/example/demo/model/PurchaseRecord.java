@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "purchase_records")
@@ -19,7 +19,7 @@ public class PurchaseRecord {
     private Double amount;
 
     @Column(nullable = false)
-    private LocalDate purchaseDate;
+    private LocalDateTime purchaseDate;
 
     @Column(nullable = false)
     private String storeLocation;
@@ -30,18 +30,43 @@ public class PurchaseRecord {
 
     // Parameterized constructor
     public PurchaseRecord(Long customerId, Double amount,
-                          LocalDate purchaseDate, String storeLocation) {
+                          LocalDateTime purchaseDate, String storeLocation) {
         this.customerId = customerId;
         this.amount = amount;
         this.purchaseDate = purchaseDate;
         this.storeLocation = storeLocation;
     }
 
-    // Getters and Setters
+    // ===== REQUIRED BY TESTS =====
 
     public Long getId() {
         return id;
     }
+
+    // Tests require this setter
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    // Tests expect THIS name
+    public Double getPurchaseAmount() {
+        return amount;
+    }
+
+    // Tests expect THIS name
+    public void setPurchaseAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDateTime getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(LocalDateTime purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    // ===== KEEP EXISTING METHODS (DO NOT REMOVE) =====
 
     public Long getCustomerId() {
         return customerId;
@@ -57,14 +82,6 @@ public class PurchaseRecord {
 
     public void setAmount(Double amount) {
         this.amount = amount;
-    }
-
-    public LocalDate getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(LocalDate purchaseDate) {
-        this.purchaseDate = purchaseDate;
     }
 
     public String getStoreLocation() {
