@@ -1,6 +1,6 @@
-package com.example.demo5.repository;
+package com.example.demo.repository;
 
-import com.example.demo5.model.PurchaseRecord;
+import com.example.demo.model.PurchaseRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

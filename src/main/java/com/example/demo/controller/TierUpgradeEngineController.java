@@ -1,7 +1,7 @@
-package com.example.demo5.controller;
+package com.example.demo.controller;
 
-import com.example.demo5.model.TierHistoryRecord;
-import com.example.demo5.service.TierUpgradeEngineService;
+import com.example.demo.model.TierHistoryRecord;
+import com.example.demo.service.TierUpgradeEngineService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

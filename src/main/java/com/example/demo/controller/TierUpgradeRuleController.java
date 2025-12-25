@@ -1,7 +1,7 @@
-package com.example.demo5.controller;
+package com.example.demo.controller;
 
-import com.example.demo5.model.TierUpgradeRule;
-import com.example.demo5.service.TierUpgradeRuleService;
+import com.example.demo.model.TierUpgradeRule;
+import com.example.demo.service.TierUpgradeRuleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

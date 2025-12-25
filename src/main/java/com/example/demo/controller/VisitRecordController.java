@@ -1,7 +1,7 @@
-package com.example.demo5.controller;
+package com.example.demo.controller;
 
-import com.example.demo5.model.VisitRecord;
-import com.example.demo5.service.VisitRecordService;
+import com.example.demo.model.VisitRecord;
+import com.example.demo.service.VisitRecordService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
