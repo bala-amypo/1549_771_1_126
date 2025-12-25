@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -6,35 +6,72 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "purchase_records")
 public class PurchaseRecord {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private CustomerProfile customer;
+    // Foreign key reference (NO JPA relationship)
+    @Column(nullable = false)
+    private Long customerId;
 
+    @Column(nullable = false)
     private Double amount;
+
+    @Column(nullable = false)
     private LocalDate purchaseDate;
+
+    @Column(nullable = false)
     private String storeLocation;
 
-    public PurchaseRecord() {}
-    
-    public PurchaseRecord(Long ignored, Double amount, LocalDate purchaseDate, String storeLocation) {
-         // Constructor to satisfy strict test cases if they use parameterized construction manually
-         this.amount = amount;
-         this.purchaseDate = purchaseDate;
-         this.storeLocation = storeLocation;
+    // No-arg constructor
+    public PurchaseRecord() {
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public CustomerProfile getCustomer() { return customer; }
-    public void setCustomer(CustomerProfile customer) { this.customer = customer; }
-    public Double getAmount() { return amount; }
-    public void setAmount(Double amount) { this.amount = amount; }
-    public LocalDate getPurchaseDate() { return purchaseDate; }
-    public void setPurchaseDate(LocalDate purchaseDate) { this.purchaseDate = purchaseDate; }
-    public String getStoreLocation() { return storeLocation; }
-    public void setStoreLocation(String storeLocation) { this.storeLocation = storeLocation; }
+    // Parameterized constructor
+    public PurchaseRecord(Long customerId, Double amount,
+                          LocalDate purchaseDate, String storeLocation) {
+        this.customerId = customerId;
+        this.amount = amount;
+        this.purchaseDate = purchaseDate;
+        this.storeLocation = storeLocation;
+    }
+
+    // Getters and Setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    public String getStoreLocation() {
+        return storeLocation;
+    }
+
+    public void setStoreLocation(String storeLocation) {
+        this.storeLocation = storeLocation;
+    }
 }
