@@ -2,9 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.model.CustomerProfile;
 import com.example.demo.service.CustomerProfileService;
-import com.example.demo.util.JwtUtil;
+import com.example.demo.security.JwtUtil;
 import com.example.demo.dto.LoginRequest;
 import com.example.demo.dto.RegisterRequest;
+import com.example.demo.payload.ApiResponse;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,7 +41,9 @@ public class AuthController {
         CustomerProfile savedCustomer =
                 customerProfileService.createCustomer(customer);
 
-        return ResponseEntity.ok(savedCustomer);
+        return ResponseEntity.ok(
+                ApiResponse.success("Customer registered successfully", savedCustomer)
+        );
     }
 
     // ================= LOGIN =================
@@ -52,7 +55,7 @@ public class AuthController {
 
         if (customer == null) {
             return ResponseEntity.status(401)
-                    .body("Invalid email or password");
+                    .body(ApiResponse.failure("Invalid email or password"));
         }
 
         boolean passwordMatch = passwordEncoder.matches(
@@ -62,7 +65,7 @@ public class AuthController {
 
         if (!passwordMatch) {
             return ResponseEntity.status(401)
-                    .body("Invalid email or password");
+                    .body(ApiResponse.failure("Invalid email or password"));
         }
 
         String token = jwtUtil.generateToken(
@@ -71,13 +74,8 @@ public class AuthController {
                 customer.getRole()
         );
 
-        AuthResponse response = new AuthResponse(
-                token,
-                customer.getId(),
-                customer.getEmail(),
-                customer.getRole()
+        return ResponseEntity.ok(
+                ApiResponse.success("Login successful", token)
         );
-
-        return ResponseEntity.ok(response);
     }
 }
