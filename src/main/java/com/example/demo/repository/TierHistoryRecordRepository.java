@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.demo5.repository;
 
-import com.example.demo.model.TierHistoryRecord;
+import com.example.demo5.model.TierHistoryRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
