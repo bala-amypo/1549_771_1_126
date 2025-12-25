@@ -11,7 +11,9 @@ import java.util.List;
 @Tag(name = "Customer Profiles")
 public class CustomerProfileController {
     private final CustomerProfileService service;
-    public CustomerProfileController(CustomerProfileService service) { this.service = service; }
+    public CustomerProfileController(CustomerProfileService service) {
+         this.service = service; 
+         }
 
     @PostMapping
     public CustomerProfile create(@RequestBody CustomerProfile c) { return service.createCustomer(c); }
