@@ -33,7 +33,7 @@ public class CustomerProfile {
     private String password;
 
     @Column(nullable = false)
-    private String role;   // 🔥 REQUIRED BY DB
+    private String role;
 
     private String currentTier;
 
@@ -55,9 +55,11 @@ public class CustomerProfile {
             this.password = "DEFAULT_PASSWORD";
         }
         if (this.role == null || this.role.isBlank()) {
-            this.role = "USER";   // ✅ DEFAULT ROLE
+            this.role = "USER";
         }
-        this.createdAt = LocalDateTime.now();
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
     }
 
     // ===== Getters & Setters =====
@@ -86,8 +88,19 @@ public class CustomerProfile {
     public String getCurrentTier() { return currentTier; }
     public void setCurrentTier(String currentTier) { this.currentTier = currentTier; }
 
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
+    // ✅ REQUIRED BY TESTCASES
+    public Boolean isActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
+
+    // ✅ REQUIRED BY TESTCASES
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
