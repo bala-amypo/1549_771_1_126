@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(
@@ -32,6 +34,11 @@ public class CustomerProfile {
 
     @Column(nullable = false)
     private String phone;
+@OneToMany
+private List<PurchaseRecord> purchaseRecords = new ArrayList<>();
+
+@OneToMany
+private List<VisitRecord> visitRecords = new ArrayList<>();
 
     // ================= SECURITY =================
     @Column(nullable = false)
@@ -171,4 +178,26 @@ public class CustomerProfile {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+    // ===== TEST REQUIRED METHODS =====
+
+// Tests expect isActive(), NOT getActive()
+public boolean isActive() {
+    return active != null && active;
+}
+
+// Tests expect primitive boolean setter
+public void setActive(boolean active) {
+    this.active = active;
+}
+
+// Tests expect purchase records
+public List<PurchaseRecord> getPurchaseRecords() {
+    return purchaseRecords;
+}
+
+// Tests expect visit records
+public List<VisitRecord> getVisitRecords() {
+    return visitRecords;
+}
+
 }
