@@ -1,6 +1,6 @@
-package com.example.demo5.service;
+package com.example.demo.service;
 
-import com.example.demo5.model.VisitRecord;
+import com.example.demo.model.VisitRecord;
 import java.util.List;
 
 public interface VisitRecordService {

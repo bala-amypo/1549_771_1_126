@@ -1,8 +1,8 @@
-package com.example.demo5.service.impl;
+package com.example.demo.service.impl;
 
-import com.example.demo5.model.VisitRecord;
-import com.example.demo5.repository.VisitRecordRepository;
-import com.example.demo5.service.VisitRecordService;
+import com.example.demo.model.VisitRecord;
+import com.example.demo.repository.VisitRecordRepository;
+import com.example.demo.service.VisitRecordService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

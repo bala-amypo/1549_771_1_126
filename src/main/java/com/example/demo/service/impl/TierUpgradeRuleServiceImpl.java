@@ -1,8 +1,8 @@
-package com.example.demo5.service.impl;
+package com.example.demo.service.impl;
 
-import com.example.demo5.model.TierUpgradeRule;
-import com.example.demo5.repository.TierUpgradeRuleRepository;
-import com.example.demo5.service.TierUpgradeRuleService;
+import com.example.demo.model.TierUpgradeRule;
+import com.example.demo.repository.TierUpgradeRuleRepository;
+import com.example.demo.service.TierUpgradeRuleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

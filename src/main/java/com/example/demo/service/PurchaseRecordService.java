@@ -1,6 +1,6 @@
-package com.example.demo5.service;
+package com.example.demo.service;
 
-import com.example.demo5.model.PurchaseRecord;
+import com.example.demo.model.PurchaseRecord;
 
 import java.util.List;
 

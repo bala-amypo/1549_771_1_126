@@ -1,6 +1,6 @@
-package com.example.demo5.service;
+package com.example.demo.service;
 
-import com.example.demo5.model.TierHistoryRecord;
+import com.example.demo.model.TierHistoryRecord;
 
 import java.util.List;
 
