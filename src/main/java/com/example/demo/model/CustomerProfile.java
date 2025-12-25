@@ -81,5 +81,18 @@ public class CustomerProfile {
     public Boolean getActive() { return active; }
     public void setActive(Boolean active) { this.active = active; }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
+    public LocalDateTime getCreatedAt() { return createdAt;
+    
+     }
+     private String password;
+private String role;
+
+public String getPassword() {
+    return password;
+}
+
+public String getRole() {
+    return role;
+}
+
 }

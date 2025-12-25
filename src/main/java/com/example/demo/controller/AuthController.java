@@ -1,11 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CustomerProfile;
-import com.example.demo.payload.LoginRequest;
-import com.example.demo.payload.RegisterRequest;
-import com.example.demo.payload.AuthResponse;
 import com.example.demo.service.CustomerProfileService;
 import com.example.demo.util.JwtUtil;
+import com.example.demo.dto.LoginRequest;
+import com.example.demo.dto.RegisterRequest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
