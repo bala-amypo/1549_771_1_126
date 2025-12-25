@@ -30,7 +30,10 @@ public class CustomerProfile {
     private String phone;
 
     @Column(nullable = false)
-    private String password;   // 🔥 REQUIRED
+    private String password;
+
+    @Column(nullable = false)
+    private String role;   // 🔥 REQUIRED BY DB
 
     private String currentTier;
 
@@ -39,24 +42,6 @@ public class CustomerProfile {
     private LocalDateTime createdAt;
 
     public CustomerProfile() {}
-
-    public CustomerProfile(
-            String customerId,
-            String fullName,
-            String email,
-            String phone,
-            String currentTier,
-            Boolean active,
-            LocalDateTime createdAt
-    ) {
-        this.customerId = customerId;
-        this.fullName = fullName;
-        this.email = email;
-        this.phone = phone;
-        this.currentTier = currentTier;
-        this.active = active;
-        this.createdAt = createdAt;
-    }
 
     @PrePersist
     protected void onCreate() {
@@ -67,7 +52,10 @@ public class CustomerProfile {
             this.active = true;
         }
         if (this.password == null || this.password.isBlank()) {
-            this.password = "DEFAULT_PASSWORD"; // 👈 avoids DB error & tests
+            this.password = "DEFAULT_PASSWORD";
+        }
+        if (this.role == null || this.role.isBlank()) {
+            this.role = "USER";   // ✅ DEFAULT ROLE
         }
         this.createdAt = LocalDateTime.now();
     }
@@ -91,6 +79,9 @@ public class CustomerProfile {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     public String getCurrentTier() { return currentTier; }
     public void setCurrentTier(String currentTier) { this.currentTier = currentTier; }
