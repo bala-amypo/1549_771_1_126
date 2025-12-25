@@ -17,7 +17,6 @@ com/example/demo/repository/CustomerProfileRepository.class
 com/example/demo/repository/TierHistoryRecordRepository.class
 com/example/demo/model/TierHistoryRecord.class
 com/example/demo/controller/TierUpgradeEngineController.class
-com/example/demo/exception/CustomExceptionHandler.class
 com/example/demo/config/SwaggerConfig.class
 com/example/demo/repository/TierUpgradeRuleRepository.class
 com/example/demo/repository/PurchaseRecordRepository.class
@@ -30,7 +29,7 @@ com/example/demo/service/impl/CustomerProfileServiceImpl.class
 com/example/demo/model/PurchaseRecord.class
 com/example/demo/service/impl/TierUpgradeRuleServiceImpl.class
 com/example/demo/security/CustomUserDetailsService.class
-com/example/demo/payload/ApiResponse.class
+com/example/demo/dto/ApiResponse.class
 com/example/demo/service/impl/PurchaseRecordServiceImpl.class
 com/example/demo/service/TierUpgradeRuleService.class
 com/example/demo/controller/AuthController.class

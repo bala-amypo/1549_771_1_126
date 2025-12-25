@@ -1,10 +1,6 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/DemoApplication.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/config/JwtAuthenticationFilter.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/config/JwtTokenProvider.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SecurityConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SwaggerConfig.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/config/security/CustomUserDetailsService.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/config/security/JwtUtil.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/AuthController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/CustomerProfileController.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/PurchaseRecordController.java
@@ -14,7 +10,6 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/dto/ApiResponse.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/dto/LoginRequest.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/dto/RegisterRequest.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/exception/CustomExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/exception/GlobalExceptionHandler.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/CustomerProfile.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/model/PurchaseRecord.java
@@ -26,6 +21,9 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/TierHistoryRecordRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/TierUpgradeRuleRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/VisitRecordRepository.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/security/CustomUserDetailsService.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/security/JwtUtil.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/PurchaseRecordService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/TierUpgradeEngineService.java
