@@ -1,7 +1,7 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "visit_records")
@@ -11,60 +11,44 @@ public class VisitRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Foreign key → CustomerProfile.id
-    @Column(nullable = false)
     private Long customerId;
 
-    private LocalDateTime visitDate;
+    private LocalDate visitDate;
 
     private String channel;
 
-    // No-arg constructor
     public VisitRecord() {
     }
 
-    // Parameterized constructor
-    public VisitRecord(Long customerId, LocalDateTime visitDate, String channel) {
+    public VisitRecord(Long customerId, LocalDate visitDate, String channel) {
+        validateChannel(channel);
         this.customerId = customerId;
         this.visitDate = visitDate;
-        this.channel = channel;
+        this.channel = channel.toUpperCase();
     }
 
-    // ===== REQUIRED BY TESTS =====
-
-    public Long getId() {
-        return id;
+    private void validateChannel(String channel) {
+        if (!"STORE".equalsIgnoreCase(channel)
+                && !"APP".equalsIgnoreCase(channel)
+                && !"WEB".equalsIgnoreCase(channel)) {
+            throw new IllegalArgumentException("Invalid channel");
+        }
     }
 
-    // Tests require this
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // ===== Getters & Setters =====
 
-    public LocalDateTime getVisitDate() {
-        return visitDate;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setVisitDate(LocalDateTime visitDate) {
-        this.visitDate = visitDate;
-    }
+    public Long getCustomerId() { return customerId; }
+    public void setCustomerId(Long customerId) { this.customerId = customerId; }
 
-    // ===== KEEP EXISTING SUPPORT METHODS =====
+    public LocalDate getVisitDate() { return visitDate; }
+    public void setVisitDate(LocalDate visitDate) { this.visitDate = visitDate; }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getChannel() {
-        return channel;
-    }
-
-    // Relaxed setter (NO exception)
+    public String getChannel() { return channel; }
     public void setChannel(String channel) {
-        this.channel = channel;
+        validateChannel(channel);
+        this.channel = channel.toUpperCase();
     }
 }

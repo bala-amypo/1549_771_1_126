@@ -1,7 +1,7 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "purchase_records")
@@ -11,84 +11,47 @@ public class PurchaseRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Foreign key reference to CustomerProfile
-    @Column(nullable = false)
     private Long customerId;
 
-    @Column(nullable = false)
     private Double amount;
 
-    @Column(nullable = false)
-    private LocalDateTime purchaseDate;
+    private LocalDate purchaseDate;
 
-    @Column(nullable = false)
     private String storeLocation;
 
-    // No-arg constructor
     public PurchaseRecord() {
     }
 
-    // Parameterized constructor
     public PurchaseRecord(Long customerId, Double amount,
-                          LocalDateTime purchaseDate, String storeLocation) {
+                          LocalDate purchaseDate, String storeLocation) {
+
+        if (amount <= 0)
+            throw new IllegalArgumentException("Amount must be positive");
+
         this.customerId = customerId;
         this.amount = amount;
         this.purchaseDate = purchaseDate;
         this.storeLocation = storeLocation;
     }
 
-    // ===== REQUIRED BY TESTS =====
+    // ===== Getters & Setters =====
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    // Tests require this setter
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Long getCustomerId() { return customerId; }
+    public void setCustomerId(Long customerId) { this.customerId = customerId; }
 
-    // Tests expect THIS name
-    public Double getPurchaseAmount() {
-        return amount;
-    }
-
-    // Tests expect THIS name
-    public void setPurchaseAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public LocalDateTime getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(LocalDateTime purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    // ===== KEEP EXISTING METHODS (DO NOT REMOVE) =====
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
+    public Double getAmount() { return amount; }
     public void setAmount(Double amount) {
+        if (amount <= 0)
+            throw new IllegalArgumentException("Amount must be positive");
         this.amount = amount;
     }
 
-    public String getStoreLocation() {
-        return storeLocation;
-    }
+    public LocalDate getPurchaseDate() { return purchaseDate; }
+    public void setPurchaseDate(LocalDate purchaseDate) { this.purchaseDate = purchaseDate; }
 
-    public void setStoreLocation(String storeLocation) {
-        this.storeLocation = storeLocation;
-    }
+    public String getStoreLocation() { return storeLocation; }
+    public void setStoreLocation(String storeLocation) { this.storeLocation = storeLocation; }
 }
