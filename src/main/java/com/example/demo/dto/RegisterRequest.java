@@ -8,7 +8,18 @@ public class RegisterRequest {
     private String phone;
     private String role;
 
-    // ===== Getters & Setters =====
+    public RegisterRequest() {
+    }
+
+    public RegisterRequest(String email, String password,
+                           String fullName, String phone,
+                           String role) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.role = role;
+    }
 
     public String getEmail() {
         return email;

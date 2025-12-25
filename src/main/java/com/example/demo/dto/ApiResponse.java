@@ -1,4 +1,4 @@
-package com.example.demo.payload;
+package com.example.demo.dto;
 
 public class ApiResponse {
 
@@ -6,7 +6,8 @@ public class ApiResponse {
     private String message;
     private Object data;
 
-    // ===== Constructors =====
+    public ApiResponse() {
+    }
 
     public ApiResponse(boolean success, String message) {
         this.success = success;
@@ -19,31 +20,27 @@ public class ApiResponse {
         this.data = data;
     }
 
-    // ===== Static helper methods (optional but useful) =====
-
-    public static ApiResponse success(String message, Object data) {
-        return new ApiResponse(true, message, data);
-    }
-
-    public static ApiResponse success(String message) {
-        return new ApiResponse(true, message);
-    }
-
-    public static ApiResponse failure(String message) {
-        return new ApiResponse(false, message);
-    }
-
-    // ===== Getters =====
-
     public boolean isSuccess() {
         return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getMessage() {
         return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public Object getData() {
         return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 }
