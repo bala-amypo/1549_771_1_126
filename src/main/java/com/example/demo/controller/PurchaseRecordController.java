@@ -16,12 +16,13 @@ public class PurchaseRecordController {
 
     @PostMapping
     public PurchaseRecord create(@RequestBody PurchaseRecord p) { return service.recordPurchase(p); }
+    @GetMapping
+    public List<PurchaseRecord> getAll() { return service.getAllPurchases(); }
     @GetMapping("/customer/{customerId}")
     public List<PurchaseRecord> getByCustomer(@PathVariable Long customerId) { return service.getPurchasesByCustomer(customerId); }
     @GetMapping("/{id}")
     public PurchaseRecord getById(@PathVariable Long id) {
         return service.getPurchaseById(id).orElseThrow(() -> new java.util.NoSuchElementException("Purchase not found"));
     }
-    @GetMapping
-    public List<PurchaseRecord> getAll() { return service.getAllPurchases(); }
+    
 }
