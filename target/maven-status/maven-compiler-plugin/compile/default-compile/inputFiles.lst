@@ -1,4 +1,5 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/DemoApplication.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/config/CorsConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/OpenApiConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SecurityConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/AuthController.java
