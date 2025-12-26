@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "customer_profiles")
 public class CustomerProfile {
@@ -35,102 +36,100 @@ public class CustomerProfile {
 
     public CustomerProfile() {}
 
+    // ✅ AUTO DEFAULTS BEFORE INSERT
     @PrePersist
     protected void onCreate() {
-        if (this.currentTier == null) this.currentTier = "BRONZE";
-        if (this.active == null) this.active = true;
-        if (this.role == null) this.role = "ROLE_RETAIL_OPERATOR";
+        if (this.currentTier == null) {
+            this.currentTier = "BRONZE";
+        }
+        if (this.active == null) {
+            this.active = true;
+        }
+        if (this.role == null || this.role.isBlank()) {
+            this.role = "ROLE_RETAIL_OPERATOR";
+        }
         this.createdAt = LocalDateTime.now();
     }
 
-    // ✅ getters & setters
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
-
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
-
-    // (other getters/setters unchanged)
-
+    // ===== GETTERS & SETTERS =====
 
     public Long getId() {
-    return id;
-}
+        return id;
+    }
 
-public void setId(Long id) {
-    this.id = id;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public String getCustomerId() {
-    return customerId;
-}
+    public String getCustomerId() {
+        return customerId;
+    }
 
-public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-}
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
 
-public String getFullName() {
-    return fullName;
-}
+    public String getFullName() {
+        return fullName;
+    }
 
-public void setFullName(String fullName) {
-    this.fullName = fullName;
-}
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-public String getEmail() {
-    return email;
-}
+    public String getEmail() {
+        return email;
+    }
 
-public void setEmail(String email) {
-    this.email = email;
-}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-public String getPhone() {
-    return phone;
-}
+    public String getPhone() {
+        return phone;
+    }
 
-public void setPhone(String phone) {
-    this.phone = phone;
-}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-public String getPassword() {
-    return password;
-}
+    public String getPassword() {
+        return password;
+    }
 
-public void setPassword(String password) {
-    this.password = password;
-}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-public String getRole() {
-    return role;
-}
+    public String getRole() {
+        return role;
+    }
 
-public void setRole(String role) {
-    this.role = role;
-}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-public String getCurrentTier() {
-    return currentTier;
-}
+    public String getCurrentTier() {
+        return currentTier;
+    }
 
-public void setCurrentTier(String currentTier) {
-    this.currentTier = currentTier;
-}
+    public void setCurrentTier(String currentTier) {
+        this.currentTier = currentTier;
+    }
 
-public Boolean getActive() {
-    return active;
-}
+    public Boolean getActive() {
+        return active;
+    }
 
-public void setActive(Boolean active) {
-    this.active = active;
-}
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
-public LocalDateTime getCreatedAt() {
-    return createdAt;
-}
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-public void setCreatedAt(LocalDateTime createdAt) {
-    this.createdAt = createdAt;
-}
-
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
