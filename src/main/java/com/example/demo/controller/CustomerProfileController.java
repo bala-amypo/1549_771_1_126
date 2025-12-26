@@ -28,8 +28,5 @@ public class CustomerProfileController {
     }
     @PutMapping("/{id}/tier")
     public CustomerProfile updateTier(@PathVariable Long id, @RequestParam String newTier) { return service.updateTier(id, newTier); }
-    @GetMapping("/lookup/{customerId}")
-    public CustomerProfile lookup(@PathVariable String customerId) {
-        return service.findByCustomerId(customerId).orElseThrow(() -> new java.util.NoSuchElementException("Customer not found"));
-    }
+   
 }
