@@ -5,7 +5,8 @@ import com.example.demo.service.VisitRecordService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+@SecurityRequirement(name = "Bearer Authentication")
 @RestController
 @RequestMapping("/api/visits")
 @Tag(name = "Visit Records")
