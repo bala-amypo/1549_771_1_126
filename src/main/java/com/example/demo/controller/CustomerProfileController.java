@@ -22,8 +22,10 @@ public class CustomerProfileController {
     public List<CustomerProfile> getAll() { return service.getAllCustomers(); }
     @GetMapping("/{id}")
     public CustomerProfile getById(@PathVariable Long id) { return service.getCustomerById(id); }
-    @GetMapping
-    public List<CustomerProfile> getAll() { return service.getAllCustomers(); }
+     @GetMapping("/lookup/{customerId}")
+    public CustomerProfile lookup(@PathVariable String customerId) {
+        return service.findByCustomerId(customerId).orElseThrow(() -> new java.util.NoSuchElementException("Customer not found"));
+    }
     @PutMapping("/{id}/tier")
     public CustomerProfile updateTier(@PathVariable Long id, @RequestParam String newTier) { return service.updateTier(id, newTier); }
     @GetMapping("/lookup/{customerId}")
