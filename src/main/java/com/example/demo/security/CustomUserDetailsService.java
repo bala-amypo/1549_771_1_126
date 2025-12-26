@@ -7,17 +7,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+
     private final CustomerProfileRepository repository;
-    public CustomUserDetailsService(CustomerProfileRepository repository) { this.repository = repository; }
+
+    // ✅ Constructor Injection
+    public CustomUserDetailsService(CustomerProfileRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email)
+            throws UsernameNotFoundException {
+
         CustomerProfile customer = repository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+                .orElseThrow(() ->
+                        new UsernameNotFoundException("User not found"));
+
         return User.builder()
                 .username(customer.getEmail())
-                .password("$2a$10$D8S/s/s/s/s/s/s/s/s/s/s/s/s/s/s/s")
-                .authorities("ROLE_RETAIL_OPERATOR")
+                .password(customer.getPassword())   // ✅ hashed password from DB
+                .authorities(customer.getRole())    // ✅ role-derived authority
                 .build();
     }
 }
