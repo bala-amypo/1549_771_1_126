@@ -18,6 +18,8 @@ public class CustomerProfileController {
 
     @PostMapping
     public CustomerProfile create(@RequestBody CustomerProfile c) { return service.createCustomer(c); }
+    @GetMapping
+    public List<CustomerProfile> getAll() { return service.getAllCustomers(); }
     @GetMapping("/{id}")
     public CustomerProfile getById(@PathVariable Long id) { return service.getCustomerById(id); }
     @GetMapping
