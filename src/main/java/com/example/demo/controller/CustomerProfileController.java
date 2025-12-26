@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 @SecurityRequirement(name = "Bearer Authentication")
+
 @RestController
+
 @RequestMapping("/api/customers")
+
 @Tag(name = "Customer Profiles")
 public class CustomerProfileController {
     private final CustomerProfileService service;
@@ -17,7 +20,9 @@ public class CustomerProfileController {
          }
 
     @PostMapping
-    public CustomerProfile create(@RequestBody CustomerProfile c) { return service.createCustomer(c); }
+    public CustomerProfile create(@RequestBody CustomerProfile c) { 
+        return service.createCustomer(c);
+         }
     @GetMapping
     public List<CustomerProfile> getAll() { return service.getAllCustomers(); }
     @GetMapping("/{id}")
