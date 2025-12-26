@@ -38,8 +38,7 @@ public class SecurityConfig {
                         "/status"
                 ).permitAll()
 
-                // 🔐 Everything else secured
-                .anyRequest().authenticated()
+               
             )
 
             .sessionManagement(sess ->
