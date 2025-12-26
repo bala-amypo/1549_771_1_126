@@ -117,7 +117,7 @@ public class CustomerProfile {
         this.currentTier = currentTier;
     }
 
-    public Boolean getActive() {
+    public Boolean isActive() {
         return active;
     }
 
