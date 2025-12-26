@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @Tag(name = "Customer Profiles")
 public class CustomerProfileController {
-    private final CustomerProfileService service;
+    private final CustomerProfileService customerProfileService;
     public CustomerProfileController(CustomerProfileService customerProfileService) {
          this.customerProfileService = customerProfileService; 
          }
@@ -34,6 +34,7 @@ public class CustomerProfileController {
         return customerProfileService.findByCustomerId(customerId).orElseThrow(() -> new java.util.NoSuchElementException("Customer not found"));
     }
     @PutMapping("/{id}/tier")
-    public CustomerProfile updateTier(@PathVariable Long id, @RequestParam String newTier) { return service.updateTier(id, newTier); }
+    public CustomerProfile updateTier(@PathVariable Long id, @RequestParam String newTier) { 
+        return customerProfileService.updateTier(id, newTier); }
    
 }
