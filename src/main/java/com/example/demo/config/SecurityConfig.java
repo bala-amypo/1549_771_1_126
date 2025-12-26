@@ -24,7 +24,7 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
-           
+            .cors(cors -> {})   // ✅ ENABLE CORS
 
             .authorizeHttpRequests(auth -> auth
                 // ✅ Allow preflight requests
