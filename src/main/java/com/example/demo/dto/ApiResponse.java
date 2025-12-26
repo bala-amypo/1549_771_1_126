@@ -3,14 +3,14 @@ package com.example.demo.dto;
 public class ApiResponse {
     private boolean success;
     private String message;
-    private Object data;
+    private Object token;
 
-    public ApiResponse(boolean success, String message, Object data) {
+    public ApiResponse(boolean success, String message, Object token) {
         this.success = success;
         this.message = message;
-        this.data = data;
+        this.token = token;
     }
     public boolean isSuccess() { return success; }
     public String getMessage() { return message; }
-    public Object getData() { return data; }
+    public Object getData() { return token; }
 }
