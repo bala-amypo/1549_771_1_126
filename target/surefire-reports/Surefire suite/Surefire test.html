@@ -1,0 +1,430 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>70/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Dec 26 18:07:50 UTC 2025</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (886 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testHibernate3()'><b>testHibernate3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testGetActiveRules()'><b>testGetActiveRules</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal4()'><b>testFinal4</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.test3NF()'><b>test3NF</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal18()'><b>testFinal18</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal11()'><b>testFinal11</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDI3()'><b>testDI3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal19()'><b>testFinal19</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testJwt1()'><b>testJwt1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEngine2()'><b>testEngine2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testInvalidCustomerLookup()'><b>testInvalidCustomerLookup</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testInvalidVisitChannel()'><b>testInvalidVisitChannel</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal8()'><b>testFinal8</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testManyToMany1()'><b>testManyToMany1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal20()'><b>testFinal20</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEntity2()'><b>testEntity2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEntity5()'><b>testEntity5</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testHql2()'><b>testHql2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal3()'><b>testFinal3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testContextLoad()'><b>testContextLoad</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEdge2()'><b>testEdge2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testHibernate1()'><b>testHibernate1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDI4()'><b>testDI4</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testListCustomers()'><b>testListCustomers</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testCreateRule()'><b>testCreateRule</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal12()'><b>testFinal12</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testManyToMany3()'><b>testManyToMany3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal15()'><b>testFinal15</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testRuleLookup()'><b>testRuleLookup</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testMissingCustomer()'><b>testMissingCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testInvalidRuleLookup()'><b>testInvalidRuleLookup</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal17()'><b>testFinal17</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testHibernate2()'><b>testHibernate2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testJwt2()'><b>testJwt2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testGetCustomer()'><b>testGetCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.test1NF()'><b>test1NF</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDI1()'><b>testDI1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testGetVisitsByCustomer()'><b>testGetVisitsByCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEngine1()'><b>testEngine1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal6()'><b>testFinal6</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testInvalidPurchaseAmount()'><b>testInvalidPurchaseAmount</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEdge3()'><b>testEdge3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testGetPurchasesByCustomer()'><b>testGetPurchasesByCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEntity1()'><b>testEntity1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testCreateCustomer()'><b>testCreateCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testJwt3()'><b>testJwt3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal9()'><b>testFinal9</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDI2()'><b>testDI2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal1()'><b>testFinal1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDI5()'><b>testDI5</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testDeactivateCustomer()'><b>testDeactivateCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testUpdateTier()'><b>testUpdateTier</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testCreateVisit()'><b>testCreateVisit</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testHql1()'><b>testHql1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testCreatePurchase()'><b>testCreatePurchase</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testManyToMany4()'><b>testManyToMany4</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal10()'><b>testFinal10</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal2()'><b>testFinal2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testManyToMany2()'><b>testManyToMany2</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFindByCustomerId()'><b>testFindByCustomerId</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal16()'><b>testFinal16</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEdge1()'><b>testEdge1</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal13()'><b>testFinal13</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.test2NF()'><b>test2NF</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEntity4()'><b>testEntity4</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal5()'><b>testFinal5</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testReactivateCustomer()'><b>testReactivateCustomer</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal7()'><b>testFinal7</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testFinal14()'><b>testFinal14</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+<tr>
+<td title='com.example.demo.CustomerLoyaltyProjectTest.testEntity3()'><b>testEntity3</b><br>Test class: com.example.demo.CustomerLoyaltyProjectTest</td>
+<td></td>
+<td>0</td>
+<td>com.example.demo.CustomerLoyaltyProjectTest@40a4337a</td></tr>
+</table><p>
+</body>
+</html>

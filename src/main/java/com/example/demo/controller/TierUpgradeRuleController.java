@@ -18,8 +18,7 @@ public class TierUpgradeRuleController {
     public TierUpgradeRule create(@RequestBody TierUpgradeRule rule) { return service.createRule(rule); }
      @GetMapping
     public List<TierUpgradeRule> getAll() { return service.getAllRules(); }
-    @PutMapping("/{id}")
-    public TierUpgradeRule update(@PathVariable Long id, @RequestBody TierUpgradeRule rule) { return service.updateRule(id, rule); }
+    
     @GetMapping("/active")
     public List<TierUpgradeRule> getActive() { return service.getActiveRules(); }
     
@@ -27,4 +26,7 @@ public class TierUpgradeRuleController {
     public TierUpgradeRule lookup(@RequestParam String fromTier, @RequestParam String toTier) {
         return service.getRule(fromTier, toTier).orElseThrow(() -> new java.util.NoSuchElementException("Rule not found"));
     }
+
+    @PutMapping("/{id}")
+    public TierUpgradeRule update(@PathVariable Long id, @RequestBody TierUpgradeRule rule) { return service.updateRule(id, rule); }
 }

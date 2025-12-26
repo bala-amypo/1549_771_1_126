@@ -16,12 +16,14 @@ public class VisitRecordController {
 
     @PostMapping
     public VisitRecord create(@RequestBody VisitRecord v) { return service.recordVisit(v); }
+
+    @GetMapping
+    public List<VisitRecord> getAll() { return service.getAllVisits(); }
     @GetMapping("/customer/{customerId}")
     public List<VisitRecord> getByCustomer(@PathVariable Long customerId) { return service.getVisitsByCustomer(customerId); }
     @GetMapping("/{id}")
     public VisitRecord getById(@PathVariable Long id) {
         return service.getVisitById(id).orElseThrow(() -> new java.util.NoSuchElementException("Visit record not found"));
     }
-    @GetMapping
-    public List<VisitRecord> getAll() { return service.getAllVisits(); }
+    
 }
