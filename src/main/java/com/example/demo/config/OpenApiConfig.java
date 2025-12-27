@@ -13,21 +13,22 @@ import java.util.List;
 public class OpenApiConfig {
 
     @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .info(new Info()
-                        .title("Customer Loyalty Tier Upgrader API")
-                        .version("1.0")
-                        .description("API documentation for Customer Loyalty project"))
-                .servers(List.of(
-                        new Server().url("https://9073.pro604cr.amypo.ai/")
-                ))
-                // ✅ Define JWT scheme ONLY (no global lock)
-                .components(new io.swagger.v3.oas.models.Components()
-                        .addSecuritySchemes("Bearer Authentication",
-                                new SecurityScheme()
-                                        .type(SecurityScheme.Type.HTTP)
-                                        .scheme("bearer")
-                                        .bearerFormat("JWT")));
-    }
-}
+        public OpenAPI customOpenAPI() {
+                return new OpenAPI()
+                                .info(new Info()
+                                                        .title("Customer Loyalty Tier Upgrader API")
+                                                                                .version("1.0")
+                                                                                                        .description("API documentation for Customer Loyalty project"))
+                                                                                                                        .servers(List.of(
+                                                                                                                                                new Server().url("https://9073.pro604cr.amypo.ai/")
+                                                                                                                                                                ))
+                                                                                                                                                                                // ✅ Define JWT scheme ONLY (no global lock)
+                                                                                                                                                                                                .components(new io.swagger.v3.oas.models.Components()
+                                                                                                                                                                                                                        .addSecuritySchemes("Bearer Authentication",
+                                                                                                                                                                                                                                                        new SecurityScheme()
+                                                                                                                                                                                                                                                                                                .type(SecurityScheme.Type.HTTP)
+                                                                                                                                                                                                                                                                                                                                        .scheme("bearer")
+                                                                                                                                                                                                                                                                                                                                                                                .bearerFormat("JWT")));
+                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                    
