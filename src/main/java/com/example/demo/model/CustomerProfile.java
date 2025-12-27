@@ -41,9 +41,15 @@ public class CustomerProfile {
         this.createdAt = LocalDateTime.now();
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getCustomerId() { return customerId; }
+    public Long getId() { 
+        return id;
+     }
+    public void setId(Long id) {
+     this.id = id;
+      }
+    public String getCustomerId() { 
+    return customerId;
+     }
     public void setCustomerId(String customerId) { this.customerId = customerId; }
     public String getFullName() { return fullName; }
     public void setFullName(String fullName) { this.fullName = fullName; }
