@@ -34,3 +34,4 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/TierUpgradeEngineServiceImpl.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/TierUpgradeRuleServiceImpl.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/impl/VisitRecordServiceImpl.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/servlet/SimpleStatusServlet.java
