@@ -1,4 +1,5 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/DemoApplication.java
+/home/coder/Workspace/demo/src/main/java/com/example/demo/config/JwtAuthenticationFilter.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/OpenApiConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/config/SecurityConfig.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/controller/AuthController.java
@@ -22,7 +23,6 @@
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/TierUpgradeRuleRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/repository/VisitRecordRepository.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/security/CustomUserDetailsService.java
-/home/coder/Workspace/demo/src/main/java/com/example/demo/security/JwtAuthenticationFilter.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/security/JwtUtil.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/CustomerProfileService.java
 /home/coder/Workspace/demo/src/main/java/com/example/demo/service/PurchaseRecordService.java
