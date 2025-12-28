@@ -21,7 +21,7 @@ public class PurchaseRecord {
     public PurchaseRecord() {}
     
     public PurchaseRecord(Long ignored, Double amount, LocalDate purchaseDate, String storeLocation) {
-         // Constructor to satisfy strict test cases if they use parameterized construction manually
+        
          this.amount = amount;
          this.purchaseDate = purchaseDate;
          this.storeLocation = storeLocation;
